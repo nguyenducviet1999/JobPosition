@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Web
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inspinia_MVC5", "Inspinia_MVC5\Inspinia_MVC5.csproj", "{A5859E0E-3C08-4045-B8DC-B3FB13655B00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MISA.Entity", "MISA.Entity\MISA.Entity.csproj", "{8A87C301-AA2C-4A09-93A4-4940A05983AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MISA.API", "MISA.API\MISA.API.csproj", "{659DD30E-1447-4A39-AE95-26023333E002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A87C301-AA2C-4A09-93A4-4940A05983AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A87C301-AA2C-4A09-93A4-4940A05983AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A87C301-AA2C-4A09-93A4-4940A05983AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A87C301-AA2C-4A09-93A4-4940A05983AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{659DD30E-1447-4A39-AE95-26023333E002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659DD30E-1447-4A39-AE95-26023333E002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659DD30E-1447-4A39-AE95-26023333E002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659DD30E-1447-4A39-AE95-26023333E002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C087A1BA-6DA5-4E33-94F3-39046D2FA3B0}
 	EndGlobalSection
 EndGlobal
