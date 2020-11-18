@@ -242,7 +242,16 @@
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Views\Home\Monitor.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MISA.API\MISA.API.csproj">
+      <Project>{659dd30e-1447-4a39-ae95-26023333e002}</Project>
+      <Name>MISA.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MISA.Entity\MISA.Entity.csproj">
+      <Project>{8a87c301-aa2c-4a09-93a4-4940a05983ae}</Project>
+      <Name>MISA.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

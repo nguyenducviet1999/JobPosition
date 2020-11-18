@@ -26,6 +26,196 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj": {
+                "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj"
+              },
+              "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
+                "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj",
+        "projectName": "MISA.BL",
+        "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj",
+        "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj": {
+                "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj"
+              },
+              "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
+                "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj",
+        "projectName": "MISA.DL",
+        "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj",
+        "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
+                "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+        "projectName": "MISA.Entity",
+        "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+        "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -38,15 +228,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.2.4, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
             }
           },
           "imports": [

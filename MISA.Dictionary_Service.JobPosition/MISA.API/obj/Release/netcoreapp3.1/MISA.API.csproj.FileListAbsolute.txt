@@ -1,0 +1,5 @@
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.API\bin\Release\netcoreapp3.1\MISA.API.deps.json
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.API\bin\Release\netcoreapp3.1\MISA.API.dll
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.API\obj\Release\netcoreapp3.1\MISA.API.csprojAssemblyReference.cache
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.API\obj\Release\netcoreapp3.1\MISA.API.AssemblyInfoInputs.cache
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.API\obj\Release\netcoreapp3.1\MISA.API.AssemblyInfo.cs
