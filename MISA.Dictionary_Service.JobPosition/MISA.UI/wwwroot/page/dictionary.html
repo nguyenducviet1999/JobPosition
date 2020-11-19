@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>AMIS BHXH</title>
+    <link href="/css/common/main.css" rel="stylesheet" />
+    <link href="/css/common/icon.css" rel="stylesheet" />
+    <link href="/css/common/button.css" rel="stylesheet" />
+    <link href="/css/common/input.css" rel="stylesheet" />
+    <link href="/css/common/toolbar.css" rel="stylesheet" />
+    <link href="/css/common/grid.css" rel="stylesheet" />
+    <link href="/css/common/header.css" rel="stylesheet" />
+    <link href="/css/common/navbar.css" rel="stylesheet" />
+    <link href="/css/common/content.css" rel="stylesheet" />
+    <link href="/css/page/dictionary.css" rel="stylesheet" />
+    <link href="/css/common/dialog.css" rel="stylesheet" />
+    <link href="/css/common/footer.css" rel="stylesheet" />
+    <link href="/lib/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo-site">
+            <div class="logo-box">
+                <div class="toggle-icon"></div>
+                <div class="amis-logo"></div>
+            </div>
+        </div>
+        <div class="navbar-content">
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-dashboard"></div>
+                <div class="nav-item-text">Tổng quan</div>
+            </a>
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-report"></div>
+                <div class="nav-item-text">Báo cáo</div>
+            </a>
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-dashboard"></div>
+                <div class="nav-item-text">Mua hàng</div>
+            </a>
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-dic"></div>
+                <div class="nav-item-text">Danh mục khách hàng</div>
+            </a>
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-dic"></div>
+                <div class="nav-item-text">Danh mục Nhân viên</div>
+            </a>
+            <a class="nav-item">
+                <div class="nav-item-icon nav-item-setting"></div>
+                <div class="nav-item-text">Thiết lập hệ thống</div>
+            </a>
+
+        </div>
+    </div>
+    <div class="header">
+        <div class="title">Danh mục Trường học</div>
+        <div class="account-info">
+            <div class="account-avatar"></div>
+            <div class="account-name">Vũ Đức Dũng</div>
+            <div class="account-option icon-option-default-16"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header-content">
+            <div class="content-feature">
+                <button id="btn-insert" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-add"></div>
+                    <div class="btn-text">Thêm nhân viên</div>
+                </button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter-left">
+                <input class="icon-search input-search" type="text" style="width: 200px"
+                       placeholder="Tìm kiếm theo Mã, Tên danh mục" />
+            </div>
+            <div class="filter-right">
+                <button id="filter-right-icon" class="m-second-button m-btn-refresh">
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-dictionary">
+            <div class="grid-header">
+                <table id="tbListDictionary" border="0" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th fieldName="STT">STT</th>
+                            <th fieldName="unitCode">Mã đơn vị</th>
+                            <th fieldName="unitName">Tên đơn vị</th>
+                            <th fieldName="unitParentName">Tên đơn vị chủ quản</th>
+                            <th fieldName="manager">Tên hiệu trưởng</th>
+                            <th fieldName="managerPhoneNumber">SĐT hiệu trưởng</th>
+                            <th fieldName="unitLevel">Cấp độ</th>
+                            <th fieldName="unitType">Loại hình</th>
+                            <th fieldName="unitCategory">Loại trường chuyên biệt</th>
+                            <th fieldName="address" max-width="100px">Địa chỉ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="paging-bar">
+            <div class="footer-left">
+                Hiển thị 1 - 15/59 danh mục
+            </div>
+            <div class="footer-center">
+                <button class="m-btn m-btn-footer">
+                    <<
+                </button>
+                <button class="m-btn m-btn-footer">
+                    <
+                </button>
+                <div class="number-page">
+                    <button class="m-btn m-btn-footer active">
+                        1
+                    </button>
+                    <button class="m-btn m-btn-footer">
+                        2
+                    </button>
+                    <button class="m-btn m-btn-footer">
+                        3
+                    </button>
+                    <button class="m-btn m-btn-footer">
+                        4
+                    </button>
+                    <button class="m-btn m-btn-footer">
+                        5
+                    </button>
+                </div>
+                <button class="m-btn m-btn-footer">
+                    >
+                </button>
+                <button class="m-btn m-btn-footer">
+                    >>
+                </button>
+            </div>
+            <div class="footer-right">
+                <select class="m-select m-select-footer">
+                    <option selected value="50">30 bản ghi trên trang</option>
+                    <option value="50">50 bản ghi trên trang</option>
+                    <option value="100">100 bản ghi trên trang</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-modal">
+        <div id="dialog">
+            <div class="dialog-body">
+                <div class="row">
+                    <div class="title">Thông tin chung</div>
+                    <div class="col-md-12">
+                        <label>Mã đơn vị *</label>
+                        <input id="txtUnitCode" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Mã ngân sách</label>
+                        <input id="txtBudgetCode" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Mã số thuế</label>
+                        <input id="txtTaxCode" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Tên đơn vị *</label>
+                        <input id="txtUnitName" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Cấp độ *</label>
+                        <select id="txtUnitLevel">
+                            <option>Mầm non</option>
+                            <option>Tiểu học</option>
+                            <option>Trung học cơ sở</option>
+                            <option>Trung học phổ thông</option>
+                            <option>Giáo dục thường xuyên</option>
+                            <option>Đại học</option>
+                            <option>Cao đẳng</option>
+                            <option>Học viện</option>
+                            <option>Trung cấp</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Loại hình *</label>
+                        <select id="txtUnitType">
+                            <option>Công lập</option>
+                            <option>Dân lập</option>
+                            <option>Tư thục</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Loại trường chuyên biệt *</label>
+                        <select id="txtUnitCategory">
+                            <option>Trường phổ thông</option>
+                            <option>Trường chuyên</option>
+                            <option>Dân tộc nội trú Tỉnh</option>
+                            <option>Dân tộc nội trú Huyện</option>
+                            <option>Dân tộc bán trú</option>
+                            <option>Khuyết tật</option>
+                            <option>Năng khiếu thể dục thể thao</option>
+                            <option>TT GDTX</option>
+                            <option>TT GDTX - DN - HN (Các tên gọi khác)</option>
+                            <option>TT GDNN - GDTX (Sát nhập theo TTLT số 39/2015)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Số lượng nhân viên</label>
+                        <input id="txtStaffSize" type="number" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Doanh thu</label>
+                        <input id="txtRevenue" type="text" />
+                    </div>
+                    <div class="title">Thông tin liên hệ</div>
+                    <div class="col-md-12">
+                        <label>Tỉnh/Thành phố *</label>
+                        <select id="txtProvinceName">
+                            <option>Nhà hàng Biển Đông</option>
+                            <option>Nhà hàng Hải Dương</option>
+                            <option>Nhà hàng Đội Cấn</option>
+                            <option>Nhà hàng Cầu Giấy</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Quận/Huyện *</label>
+                        <select id="txtDistrictName">
+                            <option>Nhà hàng Biển Đông</option>
+                            <option>Nhà hàng Hải Dương</option>
+                            <option>Nhà hàng Đội Cấn</option>
+                            <option>Nhà hàng Cầu Giấy</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Xã/Phường *</label>
+                        <select id="txtDistrictName">
+                            <option>Nhà hàng Biển Đông</option>
+                            <option>Nhà hàng Hải Dương</option>
+                            <option>Nhà hàng Đội Cấn</option>
+                            <option>Nhà hàng Cầu Giấy</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Địa chỉ</label>
+                        <input id="txtAddress" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>Hiệu trưởng</label>
+                        <input id="txtManager" type="text" />
+                    </div>
+                    <div class="col-md-12">
+                        <label>SĐT hiệu trưởng</label>
+                        <input id="txtManagerPhoneNumber" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-footer">
+                <div class="group-footer-button">
+                    <button class="m-second-button m-btn-content btn-cancel">Huỷ</button>
+                    <button class="m-btn m-btn-icon btn-save ">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/lib/jquery-3.5.1.min.js"></script>
+    <script src="/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/common/common.js"></script>
+    <script src="/js/page/dictionary.js"></script>
+
+</body>
+
+</html>

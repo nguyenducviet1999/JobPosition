@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MISA.BL\MISA.BL.csproj" />
+    <ProjectReference Include="..\MISA.DL\MISA.DL.csproj" />
+    <ProjectReference Include="..\MISA.Entity\MISA.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

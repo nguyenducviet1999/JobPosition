@@ -14,7 +14,6 @@ namespace MISA.Entity
         public string JobPositionName { get; set; }
        
 
-        public virtual Jobpositionnouse JobPosition { get; set; }
-        public virtual ICollection<Organizationtypejobposition> Organizationtypejobposition { get; set; }
+       
     }
 }

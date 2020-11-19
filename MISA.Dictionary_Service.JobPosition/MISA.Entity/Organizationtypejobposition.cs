@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using MISA.Entity.Base;
 namespace MISA.Entity
 {
-    public partial class Organizationtypejobposition : BaseEntity
+    public class Organizationtypejobposition : BaseEntity
     {
+        Organizationtypejobposition()
+        {
+            OrganizationTypeJobPositionId = Guid.NewGuid();
+
+        }
         public Guid OrganizationTypeJobPositionId { get; set; }
-        public Guid? JobPositionId { get; set; }
-        public Guid? OrganizationTypeId { get; set; }
+        public Guid JobPositionId { get; set; }
+        public Guid OrganizationTypeId { get; set; }
      
-        public virtual Jobpositionnouse JobPosition { get; set; }
-        public virtual Organizationtype OrganizationType { get; set; }
-    }
+        }
 }

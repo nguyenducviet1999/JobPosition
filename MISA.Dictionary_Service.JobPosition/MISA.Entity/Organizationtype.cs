@@ -7,7 +7,7 @@ namespace MISA.Entity
     {
         public Organizationtype()
         {
-            Organizationtypejobposition = new HashSet<Organizationtypejobposition>();
+            OrganizationTypeId = Guid.NewGuid();
         }
 
         public Guid OrganizationTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace MISA.Entity
         public Guid? Idparent { get; set; }
      
 
-        public virtual ICollection<Organizationtypejobposition> Organizationtypejobposition { get; set; }
+       
     }
 }

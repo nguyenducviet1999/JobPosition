@@ -7,3 +7,6 @@ C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MIS
 C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Release\netcoreapp3.1\MISA.DL.csproj.CoreCompileInputs.cache
 C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Release\netcoreapp3.1\MISA.DL.dll
 C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Release\netcoreapp3.1\MISA.DL.pdb
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Release\netcoreapp3.1\MISA.Entity.dll
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Release\netcoreapp3.1\MISA.Entity.pdb
+C:\Users\NDVIET1\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Release\netcoreapp3.1\MISA.DL.csproj.CopyComplete

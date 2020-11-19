@@ -1,4 +1,6 @@
-﻿using MISA.DL.Interface;
+﻿using MISA.DL.Base;
+using MISA.DL.Common;
+using MISA.DL.Interface;
 using MISA.Entity;
 using System;
 using System.Collections.Generic;
@@ -7,21 +9,25 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Models
 {
-   public class JobpositionDL : IBaseDL<Jobposition>
+    public class JobpositionDL : BaseDLL<Jobposition>
     {
-        public Task<Jobposition> DeleteEntityById(Guid id)
+        public Task<Jobposition> DeleteEntityById(String id)
+        {
+            var reader=this.dBContext.ExecuteProceduce("sgs");
+           return Convertor.ReaderToJobposition(reader);
+            
+        }
+
+        public Task<Jobposition> GetEntityById(String id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Jobposition> GetEntityById(Guid id)
+        public Task<List<Jobposition>> GetListEntity()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Jobposition>> GetListEntity()
-        {
-            throw new NotImplementedException();
+            return null;
+           // var reader = this.dBContext.ExecuteSQL("Select * from jobposition");
+            //return Convertor.ReaderToJobposition(reader); throw new NotImplementedException();
         }
 
         public Task<Jobposition> InsertEntity(Jobposition entity)

@@ -1,0 +1,12 @@
+﻿.paging-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .paging-bar .footer-center {
+        display: flex;
+    }
+
+        .paging-bar .footer-center .number-page {
+            display: flex;
+        }

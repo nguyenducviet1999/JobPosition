@@ -1,0 +1,18 @@
+﻿.dialog-modal {
+    display: block;
+    font-family: GoogleSans-Regular;
+    font-size: 13px;
+}
+
+    .dialog-modal .dialog-body label {
+        display: block;
+    }
+
+    .dialog-modal .dialog-body .row .title {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+.ui-dialog .ui-dialog-title {
+    font-size: 16px;
+}

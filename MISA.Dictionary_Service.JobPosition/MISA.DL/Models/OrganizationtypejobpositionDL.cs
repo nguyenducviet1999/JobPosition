@@ -1,4 +1,5 @@
-﻿using MISA.DL.Interface;
+﻿using MISA.DL.Base;
+using MISA.DL.Interface;
 using MISA.Entity;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Models
 {
-    class OrganizationtypejobpositionDL : IBaseDL<Organizationtypejobposition>
+    class OrganizationtypejobpositionDL : BaseDLL<Organizationtypejobposition>
     {
-        public Task<Organizationtypejobposition> DeleteEntityById(Guid id)
+        public Task<Organizationtypejobposition> DeleteEntityById(String id)
         {
+            this.dBContext.ExecuteProceduce("");
             throw new NotImplementedException();
         }
 
-        public Task<Organizationtypejobposition> GetEntityById(Guid id)
+        public Task<Organizationtypejobposition> GetEntityById(String id)
         {
             throw new NotImplementedException();
         }
