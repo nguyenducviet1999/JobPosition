@@ -8,11 +8,11 @@ namespace MISA.DL.Interface
 {
     public interface IBaseDL<T> where T : BaseEntity
     {
-        Task<List<T>> GetListEntity();
-        Task<T> GetEntityById(String id);
-        Task<T> InsertEntity(T entity);
-        Task<T> UpdateEntity(T entity);
-        Task<T> DeleteEntityById(String id);
+        List<T> GetListEntity();
+        T GetEntityById(String id);
+        T InsertEntity(T entity);
+        T UpdateEntity(T entity);
+        T DeleteEntityById(String id);
 
     }
 }

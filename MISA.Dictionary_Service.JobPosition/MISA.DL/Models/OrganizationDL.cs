@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Models
 {
-   public class OrganizationDL : BaseDLL<Organization>
+    public class OrganizationDL : BaseDBContext<Organization>, IBaseDL<Organization>
     {
-        public Task<Organization> DeleteEntityById(String id)
+        public Organization DeleteEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Organization> GetEntityById(String id)
+        public Organization GetEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Organization>> GetListEntity()
+        public List<Organization> GetListEntity()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Organization> InsertEntity(Organization entity)
+        public Organization InsertEntity(Organization entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Organization> UpdateEntity(Organization entity)
+        public Organization UpdateEntity(Organization entity)
         {
             throw new NotImplementedException();
         }

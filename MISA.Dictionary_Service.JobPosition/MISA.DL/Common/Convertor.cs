@@ -9,39 +9,40 @@ namespace MISA.DL.Common
     {
         public static List<Jobposition> ReaderToJobposition(dynamic reader)
         {
-            List<Jobposition> result = new List<Jobposition>();
+            List<Jobposition> _result = new List<Jobposition>();
             while (reader.Read())
             {
                 Jobposition _jobposition = new Jobposition();
-                if (reader["jobPositionID"].ToString())
-                {
-                    _jobposition.JobPositionId = Guid.Parse(reader["UserId"].ToString());
-                }
-                if (reader["jobPositionName"].ToString())
-                {
+                
+                
+                    _jobposition.JobPositionId = Guid.Parse(reader["jobPositionID"].ToString());
+                
+              
                     _jobposition.JobPositionName = reader["jobPositionName"].ToString();
-                }
-                result.Add(_jobposition);
+                
+                _result.Add(_jobposition);
             }
-           
+            
 
-            return result;
+            if (_result.Count == 0) return null;
+            return _result;
         }
 
-        public static Jobpositionnouse ReaderToJobpositionnouse(dynamic reader)
+        public static List<Jobpositionnouse> ReaderToJobpositionnouse(dynamic reader)
         {
-            Jobpositionnouse _jobpositionnouse = new Jobpositionnouse();
-            if (reader["jobPositionID"].ToString())
+            List<Jobpositionnouse>  _result = new List<Jobpositionnouse>();
+            while (reader.Read())
             {
-                _jobpositionnouse.JobPositionId = Guid.Parse(reader["UserId"].ToString());
-            }
-            if (reader["organizationCode"].ToString())
-            {
+                Jobpositionnouse _jobpositionnouse = new Jobpositionnouse();
+
+                _jobpositionnouse.JobPositionId = Guid.Parse(reader["jobPositionID"].ToString());
                 _jobpositionnouse.OrganizationCode = reader["organizationCode"].ToString();
+                _result.Add(_jobpositionnouse);
             }
 
 
-            return _jobpositionnouse;
+            if (_result.Count == 0) return null;
+            return _result;
         }
     }
 }

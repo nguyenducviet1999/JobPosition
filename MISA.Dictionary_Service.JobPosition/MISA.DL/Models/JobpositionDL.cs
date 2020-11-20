@@ -9,35 +9,58 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Models
 {
-    public class JobpositionDL : BaseDLL<Jobposition>
+    public class JobpositionDL : BaseDBContext<Jobposition>, IBaseDL<Jobposition>
     {
-        public Task<Jobposition> DeleteEntityById(String id)
+        public Jobposition DeleteEntityById(string id)
         {
-            var reader=this.dBContext.ExecuteProceduce("sgs");
-           return Convertor.ReaderToJobposition(reader);
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_DeleteById(\"" + id + "\")"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
+          
+        }
+
+        public Jobposition GetEntityById(string id)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetById(\"" + id + "\")"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
+        }
+
+        public List<Jobposition> GetListEntity()
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll")); 
+            if (tmp == null)
+                return null;
+
+            else return tmp;
+           
             
         }
 
-        public Task<Jobposition> GetEntityById(String id)
+        public Jobposition InsertEntity(Jobposition entity)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
+            
         }
 
-        public Task<List<Jobposition>> GetListEntity()
+        public Jobposition UpdateEntity(Jobposition entity)
         {
-            return null;
-           // var reader = this.dBContext.ExecuteSQL("Select * from jobposition");
-            //return Convertor.ReaderToJobposition(reader); throw new NotImplementedException();
-        }
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll"));
+            if (tmp == null)
+                return null;
 
-        public Task<Jobposition> InsertEntity(Jobposition entity)
-        {
-            throw new NotImplementedException();
-        }
+            else return tmp[0];
 
-        public Task<Jobposition> UpdateEntity(Jobposition entity)
-        {
-            throw new NotImplementedException();
+
+         
         }
     }
 }

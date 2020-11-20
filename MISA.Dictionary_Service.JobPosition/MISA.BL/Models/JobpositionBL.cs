@@ -1,13 +1,47 @@
-﻿using MISA.BL.Base;
-using MISA.BL.Interface;
+﻿using MISA.BL.Interface;
+using MISA.DL.Models;
 using MISA.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MISA.BL.Models
 {
-    public class JobpositionBL : BaseBL<Jobposition>
+    public class JobpositionBL : IBaseBL<Jobposition>
     {
+        JobpositionDL _jobpositionDL = new JobpositionDL();
+        public Jobposition DeleteEntityById(string id)
+        {
+
+           return _jobpositionDL.DeleteEntityById(id);
+        }
+
+        public Jobposition GetEntityById(string id)
+        {
+            var tmp = _jobpositionDL.GetEntityById(id);
+            if (tmp != null)
+            { 
+                return tmp; 
+            }
+            return new Jobposition();
+           
+        }
+
+        public List<Jobposition> GetListEntity()
+        {
+            
+            return _jobpositionDL.GetListEntity();
+        }
+
+        public Jobposition InsertEntity(Jobposition entity)
+        {
+            return _jobpositionDL.InsertEntity(entity);
+        }
+
+        public Jobposition UpdateEntity(Jobposition entity)
+        {
+            return _jobpositionDL.UpdateEntity(entity);
+        }
     }
 }

@@ -11,10 +11,10 @@ namespace MISA.BL.Interface
     public interface IBaseBL<K>where K : BaseEntity 
     {
 
-        Task<List<K>> GetListEntity();
-        Task<K> GetEntityById(String id);
-        Task<K> InsertEntity(K entity);
-        Task<K> UpdateEntity(K entity);
-        Task<K> DeleteEntityById(String id);
+        List<K> GetListEntity();
+        K GetEntityById(String id);
+        K InsertEntity(K entity);
+        K UpdateEntity(K entity);
+        K DeleteEntityById(String id);
     }
 }

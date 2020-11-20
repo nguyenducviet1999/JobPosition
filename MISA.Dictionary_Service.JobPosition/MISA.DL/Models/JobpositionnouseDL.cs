@@ -9,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace MISA.DL.Models
 {
-   public class JobpositionnouseDL : BaseDLL<Jobpositionnouse>
+    public class JobpositionnouseDL : BaseDBContext<Jobpositionnouse>, IBaseDL<Jobpositionnouse>
     {
-        public Task<Jobpositionnouse> DeleteEntityById(String id)
+        public Jobpositionnouse DeleteEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Jobpositionnouse> GetEntityById(String id)
+        public Jobpositionnouse GetEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Jobpositionnouse>> GetListEntity()
+        public List<Jobpositionnouse> GetListEntity()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Jobpositionnouse> InsertEntity(Jobpositionnouse entity)
+        public Jobpositionnouse InsertEntity(Jobpositionnouse entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Jobpositionnouse> UpdateEntity(Jobpositionnouse entity)
+        public Jobpositionnouse UpdateEntity(Jobpositionnouse entity)
         {
             throw new NotImplementedException();
         }

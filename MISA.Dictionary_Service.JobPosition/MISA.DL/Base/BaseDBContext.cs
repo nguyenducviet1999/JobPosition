@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.DL.Common
+namespace MISA.DL.Base
 {
    public class BaseDBContext<T> where T : BaseEntity
     {

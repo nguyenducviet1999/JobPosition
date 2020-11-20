@@ -1,36 +1,34 @@
-﻿using MISA.DL.Common;
-using MISA.DL.Interface;
+﻿using MISA.BL.Interface;
 using MISA.Entity.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MISA.DL.Base
+namespace MISA.BL.Base
 {
-   public class BaseDLL<T> : BaseDBContext<T>, IBaseDL<T> where T : BaseEntity
+    class BaseBL2<K> : IBaseBL<K> where K : BaseEntity
     {
-        public Task<T> DeleteEntityById(string id)
+        public K DeleteEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> GetEntityById(string id)
+        public K GetEntityById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<T>> GetListEntity()
+        public List<K> GetListEntity()
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> InsertEntity(T entity)
+        public K InsertEntity(K entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> UpdateEntity(T entity)
+        public K UpdateEntity(K entity)
         {
             throw new NotImplementedException();
         }
