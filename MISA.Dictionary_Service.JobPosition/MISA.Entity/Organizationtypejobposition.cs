@@ -5,7 +5,7 @@ namespace MISA.Entity
 {
     public class Organizationtypejobposition : BaseEntity
     {
-        Organizationtypejobposition()
+       public Organizationtypejobposition()
         {
             OrganizationTypeJobPositionId = Guid.NewGuid();
 

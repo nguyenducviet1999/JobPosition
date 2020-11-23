@@ -1,4 +1,5 @@
 ﻿using MISA.DL.Base;
+using MISA.DL.Common;
 using MISA.DL.Interface;
 using MISA.Entity;
 using System;
@@ -12,11 +13,16 @@ namespace MISA.DL.Models
     {
         public Organizationtypejobposition DeleteEntityById(string id)
         {
+            var tmp = Convertor.ReaderToOrganizationtypejobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_DeleteById(\"" + id + "\")"));
+            if (tmp == null)
+                return null;
 
-            throw new NotImplementedException();
+            else return tmp[0];
+            
         }
 
         public Organizationtypejobposition GetEntityById(string id)
+
         {
             throw new NotImplementedException();
         }
@@ -29,12 +35,20 @@ namespace MISA.DL.Models
 
         public Organizationtypejobposition InsertEntity(Organizationtypejobposition entity)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToOrganizationtypejobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Insert('" + entity.OrganizationTypeJobPositionId + "','" + entity.JobPositionId + "','" + entity.OrganizationTypeId + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
 
         public Organizationtypejobposition UpdateEntity(Organizationtypejobposition entity)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToOrganizationtypejobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Update('" + entity.OrganizationTypeJobPositionId + "','" + entity.JobPositionId + "','" + entity.OrganizationTypeId + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
     }
 }

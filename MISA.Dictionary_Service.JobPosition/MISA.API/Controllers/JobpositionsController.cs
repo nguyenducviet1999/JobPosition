@@ -16,19 +16,19 @@ namespace MISA.API.Controllers
     [ApiController]
     public class JobpositionsController : ControllerBase
     {
-        private readonly IBaseBL<BaseEntity> baseBL;
+        //private readonly IBaseBL<BaseEntity> baseBL;
 
-        public JobpositionsController(IBaseBL<BaseEntity> baseBL)
-        {
-            this.baseBL = baseBL;
-        }
+        //public JobpositionsController(IBaseBL<BaseEntity> baseBL)
+        //{
+        //    this.baseBL = baseBL;
+        //}
 
 
         // GET: api/<JobpositionsController>
         [HttpGet]
         public List<Jobposition> Get()
         {
-            var entity = baseBL.GetListEntity();
+            //var entity = baseBL.GetListEntity();
             return new JobpositionBL().GetListEntity();
         }
 
@@ -39,22 +39,33 @@ namespace MISA.API.Controllers
             return new JobpositionBL().GetEntityById(id) ;
         }
 
+        [HttpGet("organizationtype/{OrganizationTypeId}")]
+        public Jobposition GetListEntityInJobpositionType(String OrganizationTypeId)
+         {
+            return new JobpositionBL().GetEntityById(OrganizationTypeId);
+        }
+
+
         // POST api/<JobpositionsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Jobposition Post([FromBody] Jobposition entity)
         {
+            return new JobpositionBL().InsertEntity(entity);
         }
 
         // PUT api/<JobpositionsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public Jobposition Put(Guid id, [FromBody] Jobposition entity)
         {
+            entity.JobPositionId = id;
+            return new JobpositionBL().UpdateEntity(entity);
         }
 
         // DELETE api/<JobpositionsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public Jobposition Delete(String id)
         {
+            return new JobpositionBL().DeleteEntityById(id);
         }
     }
 }

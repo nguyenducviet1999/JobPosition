@@ -12,7 +12,7 @@ namespace MISA.Entity
 
         public Guid OrganizationTypeId { get; set; }
         public string OrganizationTypeName { get; set; }
-        public Guid? Idparent { get; set; }
+        public Guid? ParentId { get; set; }
      
 
        

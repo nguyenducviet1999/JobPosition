@@ -13,27 +13,47 @@ namespace MISA.DL.Models
     {
         public Jobpositionnouse DeleteEntityById(string id)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobpositionnouse(this.dBContext.ExecuteSQL("call Proc_Jobpositionnouse_DeleteById(\"" + id + "\")"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
 
         public Jobpositionnouse GetEntityById(string id)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobpositionnouse(this.dBContext.ExecuteSQL("call Proc_Jobpositionnouse_GetById(\"" + id + "\")"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
 
         public List<Jobpositionnouse> GetListEntity()
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobpositionnouse(this.dBContext.ExecuteSQL("call Proc_Jobpositionnouse_GetAll"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
         }
 
         public Jobpositionnouse InsertEntity(Jobpositionnouse entity)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobpositionnouse(this.dBContext.ExecuteSQL("call Proc_Jobpositionnouse_GetAll"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
 
         public Jobpositionnouse UpdateEntity(Jobpositionnouse entity)
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToJobpositionnouse(this.dBContext.ExecuteSQL("call Proc_Jobpositionnouse_GetAll"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
         }
     }
 }

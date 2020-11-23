@@ -13,8 +13,14 @@ namespace MISA.BL.Models
         JobpositionDL _jobpositionDL = new JobpositionDL();
         public Jobposition DeleteEntityById(string id)
         {
+            var tmp = _jobpositionDL.DeleteEntityById(id);
+            if (tmp != null)
+            {
+                return tmp;
+            }
+            return new Jobposition();
 
-           return _jobpositionDL.DeleteEntityById(id);
+
         }
 
         public Jobposition GetEntityById(string id)
@@ -30,6 +36,7 @@ namespace MISA.BL.Models
 
         public List<Jobposition> GetListEntity()
         {
+
             
             return _jobpositionDL.GetListEntity();
         }
@@ -42,6 +49,10 @@ namespace MISA.BL.Models
         public Jobposition UpdateEntity(Jobposition entity)
         {
             return _jobpositionDL.UpdateEntity(entity);
+        }
+        public List<Jobposition> GetListEntityInJobpositionType(String jobpositionTypeId)
+        {
+            return _jobpositionDL.GetListEntityInJobpositionType(jobpositionTypeId);
         }
     }
 }

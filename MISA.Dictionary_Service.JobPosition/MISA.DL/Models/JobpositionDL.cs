@@ -32,7 +32,7 @@ namespace MISA.DL.Models
 
         public List<Jobposition> GetListEntity()
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll")); 
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll()")); 
             if (tmp == null)
                 return null;
 
@@ -43,7 +43,7 @@ namespace MISA.DL.Models
 
         public Jobposition InsertEntity(Jobposition entity)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_Insert('"+entity.JobPositionId+"','"+entity.JobPositionName+"')"));
             if (tmp == null)
                 return null;
 
@@ -53,7 +53,7 @@ namespace MISA.DL.Models
 
         public Jobposition UpdateEntity(Jobposition entity)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetAll"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_Update('" + entity.JobPositionId + "','" + entity.JobPositionName + "')"));
             if (tmp == null)
                 return null;
 
@@ -62,5 +62,16 @@ namespace MISA.DL.Models
 
          
         }
+        public List<Jobposition> GetListEntityInJobpositionType(String jobpositionTypeId)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("Proc_Organizationtypejobposition_GetListJobposition('"+ jobpositionTypeId + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
+
+
+        }
+
     }
 }
