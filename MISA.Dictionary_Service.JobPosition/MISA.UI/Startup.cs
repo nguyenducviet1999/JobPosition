@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 
 using MISA.BL.Interface;
 using MISA.Entity.Base;
+using MySql.Data.MySqlClient;
 
 namespace MISA.Dictionary.School.UI
 {
@@ -18,7 +21,10 @@ namespace MISA.Dictionary.School.UI
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
+                .AddJsonFile("./appsettings.json")
+                .Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -27,7 +33,6 @@ namespace MISA.Dictionary.School.UI
         public void ConfigureServices(IServiceCollection services)
         {
             
-
             services.AddControllers();
         }
 

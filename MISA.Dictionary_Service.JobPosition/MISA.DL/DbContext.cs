@@ -15,6 +15,7 @@ namespace MISA.DL
         MySqlDataReader sqlDataReader;
         public DBContext()
         {
+            
            var _connectionStr = new MySqlConnectionStringBuilder
             {
                 Server = "10.0.6.14",

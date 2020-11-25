@@ -1208,11 +1208,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+      "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
       "projectName": "MISA.Entity",
-      "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+      "projectPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
       "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\obj\\",
+      "outputPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",

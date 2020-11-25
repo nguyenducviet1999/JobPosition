@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N4Gi/331PBEFHY5sK+8QkgF1p/wjC3J+6U0IPV5QTPZk4OWPEpP0DP5nGkue0fD0oRsvYqlG/VN+Jd2TJLFFIg==",
+  "dgSpecHash": "QIxtlveDEwFM2g1GM2QkJ/yTTPN+aS7rcxdqO/metFqO1SjBZt40Sne8yCKylKpyGl4gtKA0H/QoQIizvP+wlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj",
+  "projectFilePath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NDVIET1\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\NDVIET1\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",

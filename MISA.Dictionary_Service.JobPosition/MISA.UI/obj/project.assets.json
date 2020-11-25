@@ -1266,11 +1266,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\MISA.UI.csproj",
+      "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\MISA.UI.csproj",
       "projectName": "MISA.UI",
-      "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\MISA.UI.csproj",
+      "projectPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\MISA.UI.csproj",
       "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\obj\\",
+      "outputPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1286,14 +1286,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj": {
-              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj"
+            "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj": {
+              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.BL\\MISA.BL.csproj"
             },
-            "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj": {
-              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj"
+            "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj": {
+              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.DL\\MISA.DL.csproj"
             },
-            "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
-              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\job\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj"
+            "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj": {
+              "projectPath": "C:\\Users\\NDVIET1\\Desktop\\tfs\\MISA.CareerService\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj"
             }
           }
         }

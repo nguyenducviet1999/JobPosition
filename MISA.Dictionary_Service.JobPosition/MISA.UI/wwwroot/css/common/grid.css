@@ -6,7 +6,7 @@
 }
 
 .grid .grid-header{
-    height: 50px;
+    height: 100%;
 }
 
 .grid .grid-content{
@@ -27,6 +27,16 @@ table th {
 }
 tbody tr:nth-child(2n+1){
     background-color: #fafafa;
+}
+
+table.dataTable tbody tr:hover{
+    background-color: #5bd2a9;
+}
+#datatb_wrapper{
+    height:100%;
+}
+[datatype="datetime" ] {
+    text-align: center;
 }
 /*table td span {
     overflow: hidden;

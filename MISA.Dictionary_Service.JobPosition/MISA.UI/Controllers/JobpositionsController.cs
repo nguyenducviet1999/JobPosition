@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MISA.BL.Interface;
 using MISA.BL.Models;
 using MISA.Entity;
-using MISA.Entity.Base;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MISA.API.Controllers
+namespace MISA.UI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("page/api/[controller]")]
     [ApiController]
     public class JobpositionsController : ControllerBase
     {
@@ -36,12 +34,12 @@ namespace MISA.API.Controllers
         [HttpGet("{id}")]
         public Jobposition Get(String id)
         {
-            return new JobpositionBL().GetEntityById(id) ;
+            return new JobpositionBL().GetEntityById(id);
         }
 
         [HttpGet("organizationtype/{OrganizationTypeId}")]
         public List<Jobposition> GetListEntityInJobpositionType(String OrganizationTypeId)
-         {
+        {
             return new JobpositionBL().GetListEntityInJobpositionType(OrganizationTypeId);
         }
 

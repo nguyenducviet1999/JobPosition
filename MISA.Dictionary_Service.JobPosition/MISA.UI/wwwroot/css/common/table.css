@@ -1,0 +1,13 @@
+﻿[datatype="datetime" ] {
+    text-align: center;
+}
+#datatb_paginate{
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+#datatb_info {
+    position: fixed;
+    left: 235px;
+    bottom: 15px;
+}

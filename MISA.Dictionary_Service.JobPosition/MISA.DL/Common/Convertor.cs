@@ -27,9 +27,13 @@ namespace MISA.DL.Common
                 
               
                     _jobposition.JobPositionName = reader["jobPositionName"].ToString();
-                    _jobposition.CreateedDate = DateTime.ParseExact(reader["createedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                    _jobposition.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                    _jobposition.CreatedDate = DateTime.ParseExact(reader["createdDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                    if(reader["modifiedDate"].ToString()!="")
+                    { 
+                        _jobposition.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                    }
 
+              
 
                 _result.Add(_jobposition);
             }
@@ -54,8 +58,12 @@ namespace MISA.DL.Common
 
                 _jobpositionnouse.JobPositionId = Guid.Parse(reader["jobPositionID"].ToString());
                 _jobpositionnouse.OrganizationCode = reader["organizationCode"].ToString();
-                _jobpositionnouse.CreateedDate = DateTime.ParseExact(reader["createedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                _jobpositionnouse.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                _jobpositionnouse.CreatedDate = DateTime.ParseExact(reader["createdDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                if (reader["modifiedDate"].ToString() != "")
+                {
+                     _jobpositionnouse.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                }
+               
                 _result.Add(_jobpositionnouse);
             }
 
@@ -81,8 +89,12 @@ namespace MISA.DL.Common
                 _organizationtypejobposition.OrganizationTypeId = Guid.Parse(reader["organizationTypeID"].ToString());
                 _organizationtypejobposition.OrganizationTypeJobPositionId = Guid.Parse(reader["organizationTypeJobPositionID"].ToString());
 
-                _organizationtypejobposition.CreateedDate = DateTime.ParseExact(reader["createedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                _organizationtypejobposition.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                _organizationtypejobposition.CreatedDate = DateTime.ParseExact(reader["createdDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                if (reader["modifiedDate"].ToString() != "")
+                {
+                        _organizationtypejobposition.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                }
+                
                 _result.Add(_organizationtypejobposition);
             }
 
@@ -108,8 +120,12 @@ namespace MISA.DL.Common
                 _organizationtype.OrganizationTypeId = Guid.Parse(reader["organizationTypeID"].ToString());
                 _organizationtype.OrganizationTypeName = reader["organizationTypeJobPositionID"].ToString();
 
-                _organizationtype.CreateedDate = DateTime.ParseExact(reader["createedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                _organizationtype.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                _organizationtype.CreatedDate = DateTime.ParseExact(reader["createdDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                if (reader["modifiedDate"].ToString() != "")
+                {
+                    _organizationtype.ModifiedDate = DateTime.ParseExact(reader["modifiedDate"].ToString(), "%M/%d/yyyy %h:%m:%s tt", CultureInfo.InvariantCulture);
+                }
+                
                 _result.Add(_organizationtype);
             }
 

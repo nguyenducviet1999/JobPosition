@@ -64,7 +64,7 @@ namespace MISA.DL.Models
         }
         public List<Jobposition> GetListEntityInJobpositionType(String jobpositionTypeId)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("Proc_Organizationtypejobposition_GetListJobposition('"+ jobpositionTypeId + "')"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetListJobposition('" + jobpositionTypeId + "')"));
             if (tmp == null)
                 return null;
 
