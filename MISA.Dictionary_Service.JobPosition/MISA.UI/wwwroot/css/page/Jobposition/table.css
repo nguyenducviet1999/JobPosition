@@ -1,0 +1,45 @@
+﻿#datatb_info {
+    position: fixed;
+    left: 235px;
+    bottom: 15px;
+}
+
+#datatb tbody tr:hover {
+    background-color: #5ed8af;
+}
+
+#datatb tbody tr {
+    height: 50px !important;
+}
+
+#datatb {
+    height: 100%;
+    width: 100%;
+}
+
+    #datatb tbody {
+        max-height: 100%;
+    }
+
+
+
+
+tbody {
+    display: block;
+    height: calc(100% - 50px);
+    width: 100%;
+    overflow: auto;
+}
+
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+thead {
+    width: 100%;
+}
+tbody tr:nth-child(2n+1) {
+    background-color: #dedede;
+}

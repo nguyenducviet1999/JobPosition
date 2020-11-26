@@ -1,0 +1,93 @@
+﻿.footer-content {
+    display: flex;
+    height: calc(46px - 1em);
+    align-items: center;
+}
+.page-table-bar{
+    width: calc(100% - 2px);
+    height: 20px;
+    display: flex;
+   
+    background-color: #efefef;
+}
+
+.page-table-bar .bar-left{
+        height: 100%;
+        width: 50%;
+        display: flex;
+    }
+
+.page-table-bar .bar-right{
+        height: 100%;
+        width: 50%;
+        text-align: right;
+    }
+
+.page-table-bar .bar-left .btn-bar{
+        border: none;
+        height: 100%;
+        width: 30px;
+        background-position: center;
+    }
+    .page-table-bar .bar-left .btn-bar:hover{
+        border-color: #2FBE8E;
+    }
+
+.btn-left{
+    background-image: url('/content/img/grid/page-prev.png');
+    background-repeat: no-repeat;
+}
+
+.btn-left-left{
+    background-image: url('/content/img/grid/page-first.png');
+    background-repeat: no-repeat;
+}
+
+.btn-right{
+    background-image: url('/content/img/grid/page-next.png');
+    background-repeat: no-repeat;
+}
+
+.btn-right-right{
+    background-image: url('/content/img/grid/page-last.png');
+    background-repeat: no-repeat;
+}
+
+.btn-refresh{
+    background-image: url('/content/img/grid/refresh.png');
+    background-repeat: no-repeat;
+}
+
+.page-number{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+    .page-number input {
+        width: 30px;
+        height: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 4px;
+        padding-right: 4px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+.bar-right{
+    align-items: center;
+    padding-top: 3px;
+    padding-right: 10px;
+    height: calc(100% - 10px);
+    width: calc(50% - 3PX);
+}
+
+#numberRecordPage {
+    width: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 20px;
+}

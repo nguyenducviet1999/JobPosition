@@ -40,6 +40,22 @@ namespace MISA.DL.Models
            
             
         }
+        /// <summary>
+        /// Lấy dữ liệu phân trang
+        /// CreatedBY: NDVIET
+        /// CreatedDate: 26/11/2020
+        /// </summary>
+        /// <returns>Danh sach đối tượng</returns>
+        public List<Jobposition> GetListEntityPageData(int startIndex, int pageSize)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetPageData("+startIndex+","+pageSize+")"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
+
+
+        }
 
         public Jobposition InsertEntity(Jobposition entity)
         {
@@ -65,6 +81,30 @@ namespace MISA.DL.Models
         public List<Jobposition> GetListEntityInJobpositionType(String jobpositionTypeId)
         {
             var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetListJobposition('" + jobpositionTypeId + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
+
+
+        }
+        public long CountAllData()
+        {
+           var tmp= this.dBContext.ExecuteSQL("Call Proc_Jobposition_CountAllData()");
+            tmp.Read();
+           
+            return  long.Parse(tmp["countall"].ToString());
+        }
+        public long CountAllSearchData(string searchKey)
+        {
+            var tmp = this.dBContext.ExecuteSQL("Call Proc_Jobposition_CountSearchResult('"+searchKey+"')");
+            tmp.Read();
+
+            return long.Parse(tmp["countall"].ToString());
+        }
+        public List<Jobposition> GetListEntitySearchPageData(int startIndex, int pageSize, string searchKey)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetSearchPageData(" + startIndex + "," + pageSize + ",'"+searchKey+"')"));
             if (tmp == null)
                 return null;
 

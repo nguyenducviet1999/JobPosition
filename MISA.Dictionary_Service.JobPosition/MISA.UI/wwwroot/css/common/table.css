@@ -1,4 +1,4 @@
-﻿[datatype="datetime" ] {
+﻿[datatype="centrel" ] {
     text-align: center;
 }
 #datatb_paginate{
@@ -6,8 +6,5 @@
     right: 15px;
     bottom: 15px;
 }
-#datatb_info {
-    position: fixed;
-    left: 235px;
-    bottom: 15px;
-}
+
+

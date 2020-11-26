@@ -21,7 +21,8 @@
     <link href="../css/common/table.css" rel="stylesheet" />
     <link href="/css/page/dictionary.css" rel="stylesheet" />
     <link href="/css/page/datatable.css" rel="stylesheet" />
-
+    <link href="../css/page/Jobposition/table.css" rel="stylesheet" />
+    <link href="../css/page/Jobposition/paging.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -76,14 +77,14 @@
             <div class="grid-header">
                 <table id="datatb" border="0" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
-
-                            <th datatype="datetime">ID</th>
-                            <th datatype="datetime">Tên chức danh/chức vụ</th>
-                            <th datatype="datetime">Ngày thêm</th>
-                            <th datatype="datetime">Ngày sửa đổi</th>
-                            <th></th>
-                            <th></th>
+                        <tr style="background-color: #c5c5c5">
+                            <th datatype="centrel">STT</th>
+                            <th datatype="centrel">ID</th>
+                            <th datatype="centrel">Tên chức danh/chức vụ</th>
+                            <th datatype="centrel">Ngày thêm</th>
+                            <th datatype="centrel">Ngày sửa đổi</th>
+                            
+                            
                         </tr>
                     </thead>
                     <tbody id="bodytable">
@@ -91,6 +92,37 @@
                 </table>
             </div>
 
+        </div>
+        <hr />
+        <div class="footer-content">
+            <div class="page-table-bar">
+
+                <div class=" bar-left">
+                    <button id="firstPage" class="btn-bar btn-left-left">
+                    </button>
+                    <button id="prePage" class="btn-bar btn-left">
+                    </button>
+                    <div class="page-number">
+                        <span>Trang</span>
+
+                        <input id="pageNumber" type="text" />
+
+                        <span id="totalPageNuber"></span>
+                    </div>
+                    <button id="nextPage" class="btn-bar btn-right">
+                    </button>
+                    <button id="lastPage" class="btn-bar btn-right-right">
+                    </button>
+
+                    <button id="refreshPage" class="btn-bar btn-refresh">
+                    </button>
+                    <input id="numberRecordPage" type="number" step="25" min="25" max="100">
+
+                </div>
+                <div class="bar-right">
+                    Hiển thị kết quả từ <span id="listCustomerShow">0</span> trên <span id="totalCustomer">0</span> kết quả
+                </div>
+            </div>
         </div>
 
         <div class="dialog-modal">

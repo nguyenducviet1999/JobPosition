@@ -38,6 +38,28 @@ namespace MISA.API.Controllers
         {
             return new JobpositionBL().GetEntityById(id) ;
         }
+        [HttpGet("countalljobposition")]
+        public long CoutAllData(String id)
+        {
+            return new JobpositionBL().CountAllData();
+        }
+        [HttpGet("paging/{pageindex}/{pagesize}")]
+        public List<Jobposition> GetPageData(int pageindex, int pagesize)
+        {
+            return new JobpositionBL().GetListEntityPageData(pageindex, pagesize);
+        }
+
+        [HttpGet("countalljobposition")]
+        public long CoutAllSearchData(String searchKey)
+        {
+            return new JobpositionBL().CountAllSearchData(searchKey);
+        }
+        [HttpGet("searchpaging/{pageindex}/{pagesize}")]
+        public List<Jobposition> GetSearchPageData(int pageindex, int pagesize,[FromBody]string searchKey)
+        {
+            return new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
+        }
+
 
         [HttpGet("organizationtype/{OrganizationTypeId}")]
         public List<Jobposition> GetListEntityInJobpositionType(String OrganizationTypeId)
