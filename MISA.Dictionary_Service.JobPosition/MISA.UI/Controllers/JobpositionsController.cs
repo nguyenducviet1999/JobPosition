@@ -37,7 +37,7 @@ namespace MISA.UI.Controllers
             return new JobpositionBL().GetEntityById(id);
         }
         [HttpGet("countalljobposition")]
-        public long CoutAllData(String id)
+        public long CoutAllData()
         {
             return new JobpositionBL().CountAllData();
         }
@@ -47,13 +47,13 @@ namespace MISA.UI.Controllers
             return new JobpositionBL().GetListEntityPageData(pageindex, pagesize);
         }
 
-        [HttpGet("countalljobposition")]
-        public long CoutAllSearchData(String searchKey)
+        [HttpGet("countallsearchdata")]
+        public long CoutAllSearchData([FromQuery] String searchKey)
         {
             return new JobpositionBL().CountAllSearchData(searchKey);
         }
         [HttpGet("searchpaging/{pageindex}/{pagesize}")]
-        public List<Jobposition> GetSearchPageData(int pageindex, int pagesize, [FromBody] string searchKey)
+        public List<Jobposition> GetSearchPageData(int pageindex, int pagesize, [FromQuery] string searchKey)
         {
             return new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
         }

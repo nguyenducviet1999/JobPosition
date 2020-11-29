@@ -22,3 +22,15 @@ C:\Users\NDVIET1\Desktop\tfs\MISA.CareerService\MISA.Dictionary_Service.JobPosit
 C:\Users\NDVIET1\Desktop\tfs\MISA.CareerService\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.csproj.CopyComplete
 C:\Users\NDVIET1\Desktop\tfs\MISA.CareerService\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.dll
 C:\Users\NDVIET1\Desktop\tfs\MISA.CareerService\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.pdb
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Debug\netcoreapp3.1\MISA.DL.deps.json
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Debug\netcoreapp3.1\MISA.DL.dll
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Debug\netcoreapp3.1\MISA.DL.pdb
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Debug\netcoreapp3.1\MISA.Entity.dll
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\bin\Debug\netcoreapp3.1\MISA.Entity.pdb
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.dll
+C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.DL\obj\Debug\netcoreapp3.1\MISA.DL.pdb

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MISA.API.Common
+namespace MISA.UI.Common
 {
 
-   
+    
 
     /// <summary>
     /// Kiểu phương thức 
@@ -103,7 +103,7 @@ namespace MISA.API.Common
 
     public enum Message
     {
-        
+
     }
 
 

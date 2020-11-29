@@ -16,3 +16,39 @@
 .ui-dialog .ui-dialog-title {
     font-size: 16px;
 }
+.group-footer-button{
+    display: flex;
+    text-align: right;
+}
+.dialog-modal .dialog-body{
+    height: 100%;
+}
+.dialog{
+    width: 100%;
+}
+.dialog-input-text {
+    display: flex;
+    margin-bottom: 8px;
+}
+label {
+    width: 160px;
+    align-self: center;
+}
+.text-input {
+    width: calc(100% - 192px);
+    height: 10px;
+}
+.dialog-footer {
+   
+    width: 100%;
+    height: 42px;
+    text-align: right;
+}
+.btn-cancel {
+    margin-left: 305px;
+    padding-left:16px;
+    padding-right:16px;
+}
+.btn-save {
+    margin-left: 8px;
+}

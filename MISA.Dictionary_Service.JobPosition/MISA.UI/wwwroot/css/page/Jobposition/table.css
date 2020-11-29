@@ -20,7 +20,9 @@
     #datatb tbody {
         max-height: 100%;
     }
-
+.row-selected {
+    background-color: #58caa3 !important;
+}
 
 
 

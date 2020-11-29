@@ -17,6 +17,7 @@
         .content .header-content .content-feature{
             position: absolute;
             right: 16px;
+            display: flex;
         }
 
         /*filter bar*/
@@ -24,9 +25,13 @@
         }
 
 
-
 /* Paging */
-.content .paging-bar{
+.content .paging-bar {
     height: 56px;
 }
-
+#refreshPage{
+    margin-right:8px;
+}
+#search {
+    border-radius: 19px;
+}

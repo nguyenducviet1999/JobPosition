@@ -91,3 +91,6 @@
     padding-right: 4px;
     height: 20px;
 }
+.btn-bar:hover {
+    background-color: #2fbe8e;
+}
