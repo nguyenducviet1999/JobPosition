@@ -45,3 +45,6 @@ thead {
 tbody tr:nth-child(2n+1) {
     background-color: #dedede;
 }
+.displaynone{
+    display:none;
+}

@@ -25,6 +25,7 @@
     <link href="../css/page/Jobposition/paging.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link href="../css/common/Confirm.css" rel="stylesheet" />
+    <link href="/css/common/notification.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -40,12 +41,12 @@
                 <div class="nav-item-icon nav-item-dashboard"></div>
                 <div class="nav-item-text">Chức danh/ chức vụ</div>
             </a>
-            <div class="nav-item">
+            <a class="nav-item" href="organizationtype.html">
                 <div class="nav-item-icon nav-item-report"></div>
                 <div class="nav-item-text"> Loại tổ chức</div>
                 <span class="caret"></span>
 
-            </div>
+            </a>
         </div>
     </div>
     <div class="header">
@@ -59,38 +60,52 @@
     <div class="content">
         <div class="header-content">
             <div class="box">
-                <div class="container-1">
-                    <span class="icon"><i class="fa fa-search"></i></span>
-                    <input type="search" id="search" placeholder="Search..." />
-                </div>
-            </div>
-            <div class="content-feature">
-                <button id="refreshPage" class="m-second-button m-btn-refresh" title="Nạp dữ liệu"></button>
                 <button id="btn-insert" class="m-btn m-btn-default">
                     <div class="m-btn-icon icon-add"></div>
-                    <div class="btn-text">Thêm nhân viên</div>
+                    <div class="btn-text">Thêm</div>
                 </button>
+                <button id="btn-edit" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-edit"></div>
+                    <div class="btn-text">Sửa</div>
+                </button>
+                <button id="btn-delete" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-delete"></div>
+                    <div class="btn-text">Xóa</div>
+                </button>
+                <button id="refreshPage" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-refresh"></div>
+                    <div class="btn-text">Nạp</div>
+                </button>
+
+
+
+            </div>
+            <div class="content-feature">
+                <div class="container-1">
+
+                    <input type="search" id="search" placeholder="Tìm kiếm..." />
+                </div>
 
             </div>
         </div>
 
         <!--<div class="filter-bar">
-            <div class="filter-left">
-                <input class="icon-search input-search" type="text" style="width: 200px"
-                       placeholder="Tìm kiếm theo Mã, Tên danh mục" />
-            </div>
-            <div class="filter-right">
-                <button id="filter-right-icon" class="m-second-button m-btn-refresh">
-                </button>
-            </div>
-        </div>-->
+        <div class="filter-left">
+            <input class="icon-search input-search" type="text" style="width: 200px"
+                   placeholder="Tìm kiếm theo Mã, Tên danh mục" />
+        </div>
+        <div class="filter-right">
+            <button id="filter-right-icon" class="m-second-button m-btn-refresh">
+            </button>
+        </div>
+    </div>-->
         <div class="grid grid-dictionary">
             <div class="grid-header">
                 <table id="datatb" border="0" width="100%" cellspacing="0">
                     <thead>
                         <tr style="background-color: #c5c5c5">
                             <th datatype="centrel">STT</th>
-                            <th datatype="centrel">ID</th>
+                           
                             <th datatype="centrel">Tên chức danh/chức vụ</th>
                             <th datatype="centrel">Ngày thêm</th>
                             <th datatype="centrel">Ngày sửa đổi</th>
@@ -126,7 +141,7 @@
                     </button>
 
                     <!--<button id="refreshPage" class="btn-bar btn-refresh">
-                    </button>-->
+                </button>-->
                     <input id="numberRecordPage" type="number" step="25" min="25" max="100">
 
                 </div>
@@ -153,11 +168,15 @@
 
                     <div class="group-footer-button">
 
-                        <button id="btn-cancel" class="m-second-button m-btn-content btn-cancel">Huỷ</button>
+                        <button id="btn-cancel" class="m-btn m-second-button m-btn-content btn-cancel">Huỷ</button>
                         <button id="btn-save" class="m-btn m-btn-icon btn-save ">Lưu</button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="toastMsg">
+            <span class="toastMsg-img-success"></span> Thành công
+            <div class="toastMsg-text"></div>
         </div>
     </div>
     <script src="/lib/jquery-3.5.1.min.js"></script>

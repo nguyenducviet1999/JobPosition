@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MISA.BL.Models
 {
-    class OrganizationBL : IBaseBL<Organization>
+   public class OrganizationBL : IBaseBL<Organization>
     {
         OrganizationDL _organizationDL = new OrganizationDL();
         public Organization DeleteEntityById(string id)

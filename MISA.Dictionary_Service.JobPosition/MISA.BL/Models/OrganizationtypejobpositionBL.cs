@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MISA.BL.Models
 {
-    class OrganizationtypejobpositionBL : IBaseBL<Organizationtypejobposition>
+  public  class OrganizationtypejobpositionBL : IBaseBL<Organizationtypejobposition>
     {
         OrganizationtypejobpositionDL _organizationtypejobposition = new OrganizationtypejobpositionDL();
         public Organizationtypejobposition DeleteEntityById(string id)

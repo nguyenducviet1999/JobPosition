@@ -1,4 +1,5 @@
 ﻿using MISA.DL.Base;
+using MISA.DL.Common;
 using MISA.DL.Interface;
 using MISA.Entity;
 using System;
@@ -22,7 +23,11 @@ namespace MISA.DL.Models
 
         public List<Organizationtype> GetListEntity()
         {
-            throw new NotImplementedException();
+            var tmp = Convertor.ReaderToOrganizationtype(this.dBContext.ExecuteSQL("call Proc_Organizationtype_GetAll()"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
         }
 
         public Organizationtype InsertEntity(Organizationtype entity)

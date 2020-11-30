@@ -8,7 +8,7 @@ using System.Text;
 
 namespace MISA.BL.Models
 {
-    class JobpositionnouseBL : IBaseBL<Jobpositionnouse>
+   public class JobpositionnouseBL : IBaseBL<Jobpositionnouse>
     {
         JobpositionnouseDL _jobpositionnouseDL = new JobpositionnouseDL();
         public Jobpositionnouse DeleteEntityById(string id)

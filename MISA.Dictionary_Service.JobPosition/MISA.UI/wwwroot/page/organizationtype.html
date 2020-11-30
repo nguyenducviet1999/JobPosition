@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>AMIS BHXH</title>
+    <link href="/css/common/main.css" rel="stylesheet" />
+    <link href="/css/common/icon.css" rel="stylesheet" />
+    <link href="/css/common/button.css" rel="stylesheet" />
+    <link href="/css/common/input.css" rel="stylesheet" />
+    <link href="/css/common/toolbar.css" rel="stylesheet" />
+    <link href="/css/common/grid.css" rel="stylesheet" />
+    <link href="/css/common/header.css" rel="stylesheet" />
+    <link href="/css/common/navbar.css" rel="stylesheet" />
+    <link href="/css/common/content.css" rel="stylesheet" />
+    <link href="/css/page/dictionary.css" rel="stylesheet" />
+    <link href="/css/common/dialog.css" rel="stylesheet" />
+    <link href="/css/common/footer.css" rel="stylesheet" />
+    <link href="/lib/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+    <!--<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />-->
+    <link href="../css/common/table.css" rel="stylesheet" />
+    <link href="/css/page/dictionary.css" rel="stylesheet" />
+    <link href="/css/page/datatable.css" rel="stylesheet" />
+    <link href="../css/page/Jobposition/table.css" rel="stylesheet" />
+    <link href="../css/page/Jobposition/paging.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link href="../css/common/Confirm.css" rel="stylesheet" />
+    <link href="/css/common/notification.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo-site">
+            <div class="logo-box">
+                <div class="toggle-icon"></div>
+                <div class="amis-logo"></div>
+            </div>
+        </div>
+        <div class="navbar-content">
+            <a class="nav-item" href="dictionary.html">
+                <div class="nav-item-icon nav-item-dashboard"></div>
+                <div class="nav-item-text">Chức danh/ chức vụ</div>
+            </a>
+            <a class="nav-item" href="organizationtype.html">
+                <div class="nav-item-icon nav-item-report"></div>
+                <div class="nav-item-text"> Loại tổ chức</div>
+                <span class="caret"></span>
+
+            </a>
+        </div>
+    </div>
+    <div class="header">
+        <div class="title">Các chức danh/ chức vụ cho loại tổ chức HDND/UBND</div>
+        <div class="account-info">
+            <div class="account-avatar"></div>
+            <div class="account-name">Nguyễn Đức Việt</div>
+            <div class="account-option icon-option-default-16"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header-content">
+            <div class="box">
+                <button id="btn-insert" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-add"></div>
+                    <div class="btn-text">Thêm</div>
+                </button>
+                <button id="btn-edit" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-edit"></div>
+                    <div class="btn-text">Sửa</div>
+                </button>
+                <button id="btn-delete" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-delete"></div>
+                    <div class="btn-text">Xóa</div>
+                </button>
+                <button id="refreshPage" class="m-btn m-btn-default">
+                    <div class="m-btn-icon icon-refresh"></div>
+                    <div class="btn-text">Nạp</div>
+                </button>
+
+
+
+            </div>
+            <div class="content-feature">
+                <div class="container-1">
+
+                    <input type="search" id="search" placeholder="Tìm kiếm..." />
+                </div>
+
+            </div>
+        </div>
+
+        <!--<div class="filter-bar">
+        <div class="filter-left">
+            <input class="icon-search input-search" type="text" style="width: 200px"
+                   placeholder="Tìm kiếm theo Mã, Tên danh mục" />
+        </div>
+        <div class="filter-right">
+            <button id="filter-right-icon" class="m-second-button m-btn-refresh">
+            </button>
+        </div>
+    </div>-->
+        <div class="grid grid-dictionary">
+            <div class="grid-header">
+                <table id="datatb" border="0" width="100%" cellspacing="0">
+                    <thead>
+                        <tr style="background-color: #c5c5c5">
+                            <th datatype="centrel">STT</th>
+                            <th datatype="centrel">ID</th>
+                            <th datatype="centrel">Tên chức danh/chức vụ</th>
+                            <th datatype="centrel">Ngày thêm</th>
+                            <th datatype="centrel">Ngày sửa đổi</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody id="bodytable">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <hr />
+        <div class="footer-content">
+            <div class="page-table-bar">
+
+                <div class=" bar-left">
+                    <button id="firstPage" class="btn-bar btn-left-left">
+                    </button>
+                    <button id="prePage" class="btn-bar btn-left">
+                    </button>
+                    <div class="page-number">
+                        <span>Trang</span>
+
+                        <input id="pageNumber" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+
+                        <span id="totalPageNuber"></span>
+                    </div>
+                    <button id="nextPage" class="btn-bar btn-right">
+                    </button>
+                    <button id="lastPage" class="btn-bar btn-right-right">
+                    </button>
+
+                    <!--<button id="refreshPage" class="btn-bar btn-refresh">
+                </button>-->
+                    <input id="numberRecordPage" type="number" step="25" min="25" max="100">
+
+                </div>
+                <div class="bar-right">
+                    Hiển thị kết quả từ <span id="listCustomerShow">0</span> trên <span id="totalCustomer">0</span> kết quả
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog-modal">
+            <div id="dialog">
+                <div class="dialog-body">
+                    <div class="dialog-input-text">
+                        <label>ID chức danh/ chức vụ<span> (*)</span></label>
+                        <input id="jobpositionId" class="text-input" type="text" />
+                    </div>
+                    <div class="dialog-input-text">
+                        <label>Tên chức danh/ chức vụ<span> (*)</span></label>
+                        <input id="jobpositionName" class="text-input" type="text" />
+                    </div>
+
+                </div>
+                <div class="dialog-footer">
+
+                    <div class="group-footer-button">
+
+                        <button id="btn-cancel" class="m-btn m-second-button m-btn-content btn-cancel">Huỷ</button>
+                        <button id="btn-save" class="m-btn m-btn-icon btn-save ">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toastMsg">
+            <span class="toastMsg-img-success"></span> Thành công
+            <div class="toastMsg-text"></div>
+        </div>
+    </div>
+    <script src="/lib/jquery-3.5.1.min.js"></script>
+    <script src="/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/common/common.js"></script>
+    <script src="/js/page/dictionary.js"></script>
+    <script src="/js/common/Resurce.js"></script>
+    <script src="/js/page/datatable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
+
+</body>
+
+</html>

@@ -25,3 +25,12 @@ C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPositi
 C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.dll
 C:\Users\Administrator\Desktop\job\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.pdb
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\bin\Debug\netcoreapp3.1\MISA.Entity.deps.json
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\bin\Debug\netcoreapp3.1\MISA.Entity.dll
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\bin\Debug\netcoreapp3.1\MISA.Entity.pdb
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.csprojAssemblyReference.cache
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.AssemblyInfoInputs.cache
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.AssemblyInfo.cs
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.csproj.CoreCompileInputs.cache
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.dll
+C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.Entity\obj\Debug\netcoreapp3.1\MISA.Entity.pdb

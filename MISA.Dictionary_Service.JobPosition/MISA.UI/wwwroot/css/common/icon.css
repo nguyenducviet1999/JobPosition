@@ -19,3 +19,21 @@
     background-repeat: no-repeat;
     background-position: 16px center;
 }
+.icon-edit {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url('/content/icon/edit.png');
+}
+.icon-delete {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url('/content/icon/delete.png');
+}
+.icon-refresh {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url('/content/icon/refresh1.png');
+}

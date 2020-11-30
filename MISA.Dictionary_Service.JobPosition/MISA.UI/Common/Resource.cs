@@ -101,8 +101,12 @@ namespace MISA.UI.Common
         ErrorUpdateEntity = 605,
     }
 
-    public enum Message
+   
+    public static class Message
     {
+        public const string SuccessMess = "Success";
+        public const string ErrorMess = "Error";
+
 
     }
 

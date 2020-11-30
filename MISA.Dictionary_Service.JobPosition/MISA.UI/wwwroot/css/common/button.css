@@ -10,12 +10,17 @@
     padding-left: 16px;
     padding-right: 16px;
     outline: none;
-    border: none;
+    border: 1px solid;
     cursor: pointer;
+    margin-right:8px;
 }
 
     .m-btn:hover {
         background-color: #2FBE8E;
+        cursor: pointer;
+    }
+    .m-btn:focus {
+        border-color:#02b156;
         cursor: pointer;
     }
 
@@ -36,12 +41,13 @@
     background-color: #ffffff;
     border-radius: 4px;
     height: 40px;
-    color: #000000;
+    color: #ddd;
     padding-left: 24px;
     padding-right: 24px;
     text-align: center;
     outline: none;
     cursor: pointer;
+    margin-right: 8px;
 }
 
     .m-second-button:hover {
@@ -70,4 +76,17 @@
     border: 1px solid #ac2925;
     background-color: #c9302c;
    
+}
+#btn-insert {
+    background-color: #019160;
+}
+#btn-edit {
+    background-color: #3498db;
+}
+
+#btn-delete {
+    background-color: #e74c3c;
+}
+#refreshPage {
+    background-color: #aaa;
 }

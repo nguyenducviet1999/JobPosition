@@ -42,8 +42,10 @@ class JobpositionJS {
         // xử lý sự kiện chỉnh sửa bản ghi
         $("table").on("click", "tbody tr", this.rowOnClick);
         $("table").on("dblclick", "tbody tr", this.rowOnDoubleClick);
-        //xử lí sự kiện Click vào nút thêm chức danh chức vụ
+        //xử lí sự kiện Click vào nút trên thanh công cụ
         $("#btn-insert").click(this.addOnClick);
+        $("#btn-edit").click(this.editOnClick);
+        $("#btn-delete").click(this.deleteOnClick);
         //xử lí sự kiện trong dialog
         $("#btn-cancel").click(this.cancelOnClick);
         $("#btn-save").click(this.saveOnClick);
@@ -71,17 +73,7 @@ class JobpositionJS {
         });
         return result;
     }
-    getall() {
-        try {
-            var res = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize, null);
-            me.loadTable(res);
-            me.LoadPageInfor();
-        }
-        catch (e) {
-            console.log(e);
-        }
-
-    }
+    
   
     loadTable(data) {
         if (data != null) {
@@ -90,7 +82,7 @@ class JobpositionJS {
             for (var i = 0; i < data.length; i++) {
                 var tmp = $(`<tr>
                                 <td datatype="centrel">`+ 1 + `</td> 
-                                <td>`+ data[i]["jobPositionId"] + `</td>
+                                <td class="displaynone">`+ data[i]["jobPositionId"] + `</td>
                                 <td>`+ data[i]["jobPositionName"] + `</td>
                                 <td datatype="centrel">`+ formatDate(data[i]["createdDate"]) + `</td> 
                                 <td datatype="centrel">`+ formatDate(data[i]["modifiedDate"]) + `</td > </tr>`);
@@ -165,11 +157,14 @@ class JobpositionJS {
      * */
     searchData(e) {
         if (e.keyCode == 13) {
+            CurrentPageIndex = 1;
+            PageSize = 20;
             PageStatus = Enum.PageStatus.SearchData;
             me.pagination();
         }
     }
     saveData() {
+        var success = false;
         var jobposition = {
             jobPositionId: $("#jobpositionId").val(),
             jobPositionName: $("#jobpositionName").val()
@@ -181,14 +176,37 @@ class JobpositionJS {
 
             case Enum.DialogStatus.Add:
                 {
-                  var  data = me.callajax("POST", "api/Jobpositions", jobposition);
-                   
+                    var data = me.callajax("POST", "api/Jobpositions", JSON.stringify(jobposition));
+                    if (data.success == true) {
+                        $.alert({
+                            title: 'Thông Báo',
+                            content: "Thêm dữ liệu thành công.",
+                        });
+                    }
+                    else {
+                        $.alert({
+                            title: 'Thông Báo',
+                            content: "Thêm dữ liệu thất bại.",
+                        });
+                    }
                     break;
                 }
             case Enum.DialogStatus.Edit:
                 {
-                   
-                   var data = me.callajax("PUT", "api/Jobpositions", jobposition);
+
+                    var data = me.callajax("PUT", "api/Jobpositions/" + jobposition.jobPositionId, JSON.stringify(jobposition));
+                    if (data.success == true) {
+                        $.alert({
+                            title: 'Thông Báo',
+                            content: "Sửa dữ liệu thành công.",
+                        });
+                    }
+                    else {
+                        $.alert({
+                            title: 'Thông Báo',
+                            content: "Sửa dữ liệu thất bại.",
+                        });
+                    }
                    
                     break;
                 }
@@ -201,15 +219,15 @@ class JobpositionJS {
         switch (PageStatus) {
             case Enum.PageStatus.NomalData:
                 {
-                    data = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize, null);
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countalljobposition", null);
+                    data = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize, null)["data"];
+                    totalRecord = me.callajax("GET", "api/Jobpositions/countalljobposition", null)["data"];
                     break;
                 }
             case Enum.PageStatus.SearchData:
                 {
                     var searchKey = $("#search").val();
-                    data = me.callajax("GET", "api/Jobpositions/searchpaging/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey,null);
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countallsearchdata?searchKey=" + searchKey, null);
+                    data = me.callajax("GET", "api/Jobpositions/searchpaging/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey,null)["data"];
+                    totalRecord = me.callajax("GET", "api/Jobpositions/countallsearchdata?searchKey=" + searchKey, null)["data"];
                     break;
                 }    
         }
@@ -247,7 +265,7 @@ class JobpositionJS {
         var Name = $(this).children()[2].textContent;
         $("#jobpositionId").val(id);
         $("#jobpositionName").val(Name);
-        insert_dialog.dialog("open");
+    
 
 
     }
@@ -256,6 +274,59 @@ class JobpositionJS {
         me.clearDialog();
         insert_dialog.dialog("open");
         $("#jobpositionId").val(newguid());
+    }
+    editOnClick() {
+        
+        if ($(".row-selected").length < 1) {
+            $.alert({
+                title: 'Chú ý',
+                content: "Vui lòng chọn một bản ghi trước",
+            });
+        }
+        else if ($(".row-selected").length > 1) {
+            $.alert({
+                title: 'Chú ý',
+                content: "Chỉ được chọn một bản ghi",
+            });
+        }
+        else {
+            DialogStatus = Enum.DialogStatus.Edit;
+            me.clearDialog();
+            insert_dialog.dialog("open");
+            var id = $(".row-selected").children()[1].textContent;
+            var Name = $(".row-selected").children()[2].textContent;
+            $("#jobpositionId").val(id);
+            $("#jobpositionName").val(Name);
+        }
+    }
+    deleteOnClick() {
+        if ($(".row-selected").length < 1) {
+            $.alert({
+                title: 'Chú ý',
+                content: "Vui lòng chọn ít nhất một bản ghi trước",
+            });
+        }
+        else {
+            var listId=[];
+            for (var i = 0; i < $(".row-selected").length; i = i + 1) {
+                listId.push($($(".row-selected")[i]).children()[1].textContent);
+            }
+            var data = me.callajax("DELETE", "api/Jobpositions/deleteListJobpositionId", JSON.stringify(listId))["data"];
+            if (data.length <= 0) {
+                $.alert({
+                    title: 'Thông báo',
+                    content: "Xóa dữ liệu thất bại.",
+                });
+            }
+            else {
+                $.alert({
+                    title: 'Thông báo',
+                    content: "Xóa dữ liệu thành công.",
+                });
+                me.showToastMsgSuccess("Xóa dữ liệu thành công");
+                me.pagination();
+            }
+        }
     }
    /**
     * xử lý sự kiện click nút hủy trong dialog
@@ -280,12 +351,14 @@ class JobpositionJS {
        var tmp = me.validate();
         if (tmp == "") {
             me.saveData();
+            insert_dialog.dialog("close");
         }
         else {
             $.alert({
                 title: 'Chú ý',
                 content: tmp,
             });
+
         }
        
     }
@@ -303,5 +376,12 @@ class JobpositionJS {
         $("#jobpositionId").val("");
         $("#jobpositionName").val("");
     }
+    showToastMsgSuccess(text) {
+    $('.toastMsg-text').text(text);
+    $('.toastMsg').show();
+    setTimeout(function () {
+        $('.toastMsg').hide();
+    }, 4000);
+}
 
 }

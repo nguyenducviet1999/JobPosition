@@ -13,6 +13,7 @@
         display: flex;
         align-items: center;
         height: 15px;
+        margin-bottom: 8px;
     }
         .content .header-content .content-feature{
             position: absolute;
@@ -22,6 +23,11 @@
 
         /*filter bar*/
         .content .filter-bar {
+        }
+        .box{
+            position: absolute;
+            left: 16px;
+            display: flex;
         }
 
 

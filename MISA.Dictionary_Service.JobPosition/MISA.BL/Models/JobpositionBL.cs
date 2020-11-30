@@ -11,6 +11,14 @@ namespace MISA.BL.Models
     public class JobpositionBL : IBaseBL<Jobposition>
     {
         JobpositionDL _jobpositionDL = new JobpositionDL();
+        public void DisconnectDb()
+        {
+            this._jobpositionDL.dBContext.DisConnectDB();
+        }
+        public void OpenconnectionDd()
+        {
+            this._jobpositionDL.dBContext.ConnectDB();
+        }
         /// <summary>
         /// Hàm xóa một chức danh chức vụ theo id của nó
         /// CreatedBy: NDVIET
