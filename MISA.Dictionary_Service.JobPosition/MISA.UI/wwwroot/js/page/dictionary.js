@@ -1,12 +1,18 @@
 ﻿/// <reference path="../common/resurce.js" />
 var me;
-var CurrentPageIndex = 1;
-var PageSize=20;
-var TotalRecord = 0;
-var PageStatus = 1;
+var CurrentPageIndex;
+var PageSize;
+var TotalRecord;
+var PageStatus;
 var DialogStatus;
+var Page;
 $(document).ready(function () {
-    var jobpositionjs = new JobpositionJS();
+    //khởi tạo ban đầu giá trị các biến
+    CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
+    PageSize = Enum.DefaultValue.PageSizeDefault;
+    TotalRecord = Enum.DefaultValue.TotalRecordDefault;
+    PageStatus = Enum.DefaultValue.PageStatusDefault;
+    jobpositionjs = new JobpositionJS();
     insert_dialog = $(".dialog-modal").dialog({
         minHeight: 180,
         minWidth: 465,
@@ -49,6 +55,7 @@ class JobpositionJS {
         //xử lí sự kiện trong dialog
         $("#btn-cancel").click(this.cancelOnClick);
         $("#btn-save").click(this.saveOnClick);
+        
     }
     loadData(data) {
         //Lấy th từ html
@@ -372,10 +379,12 @@ class JobpositionJS {
         }
         return mess;
     }
+
     clearDialog() {
         $("#jobpositionId").val("");
         $("#jobpositionName").val("");
     }
+
     showToastMsgSuccess(text) {
     $('.toastMsg-text').text(text);
     $('.toastMsg').show();

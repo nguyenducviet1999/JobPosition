@@ -51,7 +51,7 @@
 }
 
     .m-second-button:hover {
-        background-color: #e9ebee;
+        background-color: #e86658;
     }
 
 .m-btn-refresh {
@@ -89,4 +89,20 @@
 }
 #refreshPage {
     background-color: #aaa;
+}
+
+#btn-insert:hover {
+    background-color: #0e9b6b;
+}
+
+#btn-edit:hover {
+    background-color: #52a5dc;
+}
+
+#btn-delete:hover {
+    background-color: #e86f62;
+}
+
+#refreshPage:hover {
+    background-color: #bdbbbb;
 }

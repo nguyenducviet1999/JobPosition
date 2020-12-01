@@ -78,6 +78,15 @@
                 </button>
 
 
+                <input id="organizationType" value="" list="brow">
+                <datalist id="brow">
+                    <option value="Internet Explorer">
+                    <option value="Firefox">
+                    <option value="Chrome">
+                    <option value="Opera">
+                    <option value="Safari">
+                </datalist>
+
 
             </div>
             <div class="content-feature">
@@ -155,11 +164,12 @@
             <div id="dialog">
                 <div class="dialog-body">
                     <div class="dialog-input-text">
-                        <label>ID chức danh/ chức vụ<span> (*)</span></label>
-                        <input id="jobpositionId" class="text-input" type="text" />
+                        <label style="display:none">ID chức danh/ chức vụ<span> (*)</span></label>
+                        <input style="display:none" id="jobpositionId" class="text-input" type="text" />
                     </div>
                     <div class="dialog-input-text">
-                        <label>Tên chức danh/ chức vụ<span> (*)</span></label>
+                        <label>Tên chức danh/ chức vụ<span style="        color: #ff3621
+"> (*)</span></label>
                         <input id="jobpositionName" class="text-input" type="text" />
                     </div>
 

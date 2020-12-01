@@ -33,7 +33,8 @@ namespace MISA.DL.Common
                     if(reader["modifiedDate"].ToString()!="")
                     { 
                         _jobposition.ModifiedDate = DateTime.Parse(reader["modifiedDate"].ToString() );
-                    }
+                    
+                }
 
               
 

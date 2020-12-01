@@ -54,3 +54,17 @@ C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MIS
 C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.csproj.CopyComplete
 C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.dll
 C:\Users\NDVIET1\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.pdb
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.BL.deps.json
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.BL.dll
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.BL.pdb
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.DL.dll
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.Entity.dll
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.DL.pdb
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\bin\Debug\netcoreapp3.1\MISA.Entity.pdb
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.dll
+C:\Users\Administrator\Desktop\git\JobPosition\MISA.Dictionary_Service.JobPosition\MISA.BL\obj\Debug\netcoreapp3.1\MISA.BL.pdb

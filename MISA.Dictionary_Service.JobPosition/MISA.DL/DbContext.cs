@@ -18,7 +18,7 @@ namespace MISA.DL
             
            var _connectionStr = new MySqlConnectionStringBuilder
             {
-                Server = "10.0.6.14",
+                Server = "localhost",
                 Database = "dictionary_service_jobposition",
                 UserID = "root",
                 Password = "12345678@Abc",
