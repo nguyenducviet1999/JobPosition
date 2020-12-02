@@ -32,37 +32,37 @@ namespace MISA.BL.Models
         {
             int _startIndex = (pageIndex - 1) * pageSize;
 
-            var tmp = _organizationtypejobposition.GetListEntityPageData(_startIndex, pageSize);
+            var tmp = _organizationtypejobposition.GetListEntityPageData(_startIndex, pageSize, oganizationType);
             return tmp;
         }
         public List<Jobposition> GetListEntitySearchPageData(int pageIndex, int pageSize, string searchKey, string oganizationType)
         {
             int _startIndex = (pageIndex - 1) * pageSize;
 
-            var tmp = _organizationtypejobposition.GetListEntitySearchPageData(_startIndex, pageSize, searchKey);
+            var tmp = _organizationtypejobposition.GetListEntitySearchPageData(_startIndex, pageSize, searchKey, oganizationType);
             return tmp;
         }
   
         public long CountAllData(string oganizationType)
         {
-            var tmp = _organizationtypejobposition.CountAllData();
+            var tmp = _organizationtypejobposition.CountAllData( oganizationType);
             return tmp;
         }
     
         public long CountAllSearchData(string searchKey, string oganizationType)
         {
-            var tmp = _organizationtypejobposition.CountAllSearchData(searchKey);
+            var tmp = _organizationtypejobposition.CountAllSearchData(searchKey, oganizationType);
             return tmp;
         }
     
         public Jobposition InsertEntity(Jobposition entity, string oganizationType)
         {
-            return _organizationtypejobposition.InsertEntity(entity);
+            return _organizationtypejobposition.InsertEntity(entity, oganizationType);
         }
     
-        public Jobposition UpdateEntity(Jobposition entity, string oganizationType)
+        public Jobposition UpdateEntity(Jobposition entity,string oldJobpositionId, string oganizationType)
         {
-            return _organizationtypejobposition.UpdateEntity(entity);
+            return _organizationtypejobposition.UpdateEntity(entity, oldJobpositionId, oganizationType);
         }
     }
 }

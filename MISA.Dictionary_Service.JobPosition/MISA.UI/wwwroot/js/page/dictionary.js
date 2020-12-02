@@ -279,6 +279,7 @@ class JobpositionJS {
         var id = $(this).children()[1].textContent;
         var Name = $(this).children()[2].textContent;
         $("#jobpositionId").val(id);
+        $("#oldJobpositionId").val(id);   
         $("#jobpositionName").val(Name);
     
 
@@ -311,6 +312,7 @@ class JobpositionJS {
             var id = $(".row-selected").children()[1].textContent;
             var Name = $(".row-selected").children()[2].textContent;
             $("#jobpositionId").val(id);
+            $("#oldJobpositionId").val(id);   
             $("#jobpositionName").val(Name);
         }
     }
