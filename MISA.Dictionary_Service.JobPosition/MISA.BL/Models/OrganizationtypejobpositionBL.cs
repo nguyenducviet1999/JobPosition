@@ -9,30 +9,58 @@ using System.Threading.Tasks;
 
 namespace MISA.BL.Models
 {
-  public  class OrganizationtypejobpositionBL : IBaseBL<Organizationtypejobposition>
+  public  class OrganizationtypejobpositionBL 
     {
         OrganizationtypejobpositionDL _organizationtypejobposition = new OrganizationtypejobpositionDL();
-        public Organizationtypejobposition DeleteEntityById(string id)
+        public String OganizationType;
+        OrganizationtypejobpositionBL(string oganizationType)
         {
-            return _organizationtypejobposition.DeleteEntityById(id);
+            OganizationType = oganizationType;
         }
 
-        public Organizationtypejobposition GetEntityById(string id)
+        public void DisconnectDb()
         {
-            return _organizationtypejobposition.GetEntityById(id);
+            this._organizationtypejobposition.dBContext.DisConnectDB();
         }
-
-        public List<Organizationtypejobposition> GetListEntity()
+        public void OpenconnectionDd()
         {
-            return _organizationtypejobposition.GetListEntity();
+            this._organizationtypejobposition.dBContext.ConnectDB();
         }
+ 
+   
+        public List<Jobposition> GetListEntityPageData(int pageIndex, int pageSize, string oganizationType)
+        {
+            int _startIndex = (pageIndex - 1) * pageSize;
 
-        public Organizationtypejobposition InsertEntity(Organizationtypejobposition entity)
+            var tmp = _organizationtypejobposition.GetListEntityPageData(_startIndex, pageSize);
+            return tmp;
+        }
+        public List<Jobposition> GetListEntitySearchPageData(int pageIndex, int pageSize, string searchKey, string oganizationType)
+        {
+            int _startIndex = (pageIndex - 1) * pageSize;
+
+            var tmp = _organizationtypejobposition.GetListEntitySearchPageData(_startIndex, pageSize, searchKey);
+            return tmp;
+        }
+  
+        public long CountAllData(string oganizationType)
+        {
+            var tmp = _organizationtypejobposition.CountAllData();
+            return tmp;
+        }
+    
+        public long CountAllSearchData(string searchKey, string oganizationType)
+        {
+            var tmp = _organizationtypejobposition.CountAllSearchData(searchKey);
+            return tmp;
+        }
+    
+        public Jobposition InsertEntity(Jobposition entity, string oganizationType)
         {
             return _organizationtypejobposition.InsertEntity(entity);
         }
-
-        public Organizationtypejobposition UpdateEntity(Organizationtypejobposition entity)
+    
+        public Jobposition UpdateEntity(Jobposition entity, string oganizationType)
         {
             return _organizationtypejobposition.UpdateEntity(entity);
         }

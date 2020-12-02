@@ -5,6 +5,10 @@
     height: 300px;
 }
 
+
+.grid-dictionary {
+    height: calc(100vh - 188px);
+}
 .grid .grid-header{
     height: 100%;
 }

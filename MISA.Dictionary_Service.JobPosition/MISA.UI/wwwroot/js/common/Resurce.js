@@ -11,7 +11,8 @@
         CurrentPageIndexDefault: 1,
         PageSizeDefault: 20,
         TotalRecordDefault: 0,
-        PageStatusDefault: 1
+        PageStatusDefault: 1,
+        OrganizationType: ""
     }
    
 

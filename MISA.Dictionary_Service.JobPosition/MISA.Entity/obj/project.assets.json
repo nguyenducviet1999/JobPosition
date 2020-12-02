@@ -1203,19 +1203,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\NDVIET1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\git\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+      "projectUniqueName": "C:\\Users\\NDVIET1\\Desktop\\gitlast\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
       "projectName": "MISA.Entity",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\git\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\git\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\obj\\",
+      "projectPath": "C:\\Users\\NDVIET1\\Desktop\\gitlast\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\MISA.Entity.csproj",
+      "packagesPath": "C:\\Users\\NDVIET1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\NDVIET1\\Desktop\\gitlast\\JobPosition\\MISA.Dictionary_Service.JobPosition\\MISA.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NDVIET1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

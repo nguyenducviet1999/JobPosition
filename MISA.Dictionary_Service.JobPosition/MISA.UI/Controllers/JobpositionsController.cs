@@ -26,26 +26,36 @@ namespace MISA.UI.Controllers
 
         // GET: api/<JobpositionsController>
         [HttpGet]
-        public ActionServiceResult  Get()
+        public ActionServiceResult  Get( [FromQuery] String organizationType)
         {
-            var tmp =new JobpositionBL().GetListEntity();
-            //var entity = baseBL.GetListEntity();
-            if (tmp==null)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
-            else
+            dynamic tmp=null;
+            if (organizationType=="")
             {
+                 tmp =new JobpositionBL().GetListEntity();
+                 //var entity = baseBL.GetListEntity();
+               
+             }    
+          
+            if (tmp==null)
+                 { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+                else
+                    {
                 return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
-            }
-           
+                    }
            
         }
 
         // GET api/<JobpositionsController>/5
         [HttpGet("{id}")]
-        public ActionServiceResult Get(String id)
+        public ActionServiceResult Get(String id,[FromQuery] String organizationType )
         {
-            
-          var tmp= new JobpositionBL().GetEntityById(id);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+
+                 tmp = new JobpositionBL().GetEntityById(id);
+             
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -54,10 +64,15 @@ namespace MISA.UI.Controllers
             }
         }
         [HttpGet("countalljobposition")]
-        public ActionServiceResult CoutAllData()
+        public ActionServiceResult CoutAllData([FromQuery] String organizationType)
         {
-            var tmp = new JobpositionBL().CountAllData();
-            //var entity = baseBL.GetListEntity();
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().CountAllData();
+                //var entity = baseBL.GetListEntity();
+               
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -67,9 +82,14 @@ namespace MISA.UI.Controllers
 
         }
         [HttpGet("paging/{pageindex}/{pagesize}")]
-        public ActionServiceResult GetPageData(int pageindex, int pagesize)
+        public ActionServiceResult GetPageData(int pageindex, int pagesize, [FromQuery] String organizationType)
         {
-            var tmp=new JobpositionBL().GetListEntityPageData(pageindex, pagesize);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().GetListEntityPageData(pageindex, pagesize);
+               
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -80,9 +100,14 @@ namespace MISA.UI.Controllers
         }
 
         [HttpGet("countallsearchdata")]
-        public ActionServiceResult CoutAllSearchData([FromQuery] String searchKey)
+        public ActionServiceResult CoutAllSearchData([FromQuery] String searchKey, [FromQuery] String organizationType)
         {
-            var tmp= new JobpositionBL().CountAllSearchData(searchKey);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().CountAllSearchData(searchKey);
+              
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -91,9 +116,14 @@ namespace MISA.UI.Controllers
             }
         }
         [HttpGet("searchpaging/{pageindex}/{pagesize}")]
-        public ActionServiceResult GetSearchPageData(int pageindex, int pagesize, [FromQuery] string searchKey)
+        public ActionServiceResult GetSearchPageData(int pageindex, int pagesize, [FromQuery] string searchKey, [FromQuery] String organizationType)
         {
-            var tmp= new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
+               
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -104,9 +134,14 @@ namespace MISA.UI.Controllers
 
 
         [HttpGet("organizationtype/{OrganizationTypeId}")]
-        public ActionServiceResult GetListEntityInJobpositionType(String OrganizationTypeId)
+        public ActionServiceResult GetListEntityInJobpositionType(String OrganizationTypeId, [FromQuery] String organizationType)
         {
-            var tmp = new JobpositionBL().GetListEntityInJobpositionType(OrganizationTypeId);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().GetListEntityInJobpositionType(OrganizationTypeId);
+             
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -118,9 +153,14 @@ namespace MISA.UI.Controllers
 
         // POST api/<JobpositionsController>
         [HttpPost]
-        public ActionServiceResult Post([FromBody] Jobposition entity)
+        public ActionServiceResult Post([FromBody] Jobposition entity, [FromQuery] String organizationType)
         {
-            var tmp = new JobpositionBL().InsertEntity(entity);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().InsertEntity(entity);
+               
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -131,10 +171,15 @@ namespace MISA.UI.Controllers
 
         // PUT api/<JobpositionsController>/5
         [HttpPut("{id}")]
-        public ActionServiceResult Put(Guid id, [FromBody] Jobposition entity)
+        public ActionServiceResult Put(Guid id, [FromBody] Jobposition entity, [FromQuery] String organizationType)
         {
-            entity.JobPositionId = id;
-            var tmp = new JobpositionBL().UpdateEntity(entity);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                entity.JobPositionId = id;
+                 tmp = new JobpositionBL().UpdateEntity(entity);
+                
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -145,9 +190,14 @@ namespace MISA.UI.Controllers
 
         // DELETE api/<JobpositionsController>/5
         [HttpDelete("{id}")]
-        public ActionServiceResult Delete(String id)
+        public ActionServiceResult Delete(String id, [FromQuery] String organizationType)
         {
-            var tmp = new JobpositionBL().DeleteEntityById(id);
+            dynamic tmp = null;
+            if (organizationType == "")
+            {
+                 tmp = new JobpositionBL().DeleteEntityById(id);
+              
+            }
             if (tmp == null)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
@@ -156,28 +206,38 @@ namespace MISA.UI.Controllers
             }
         }
         [HttpDelete("deleteListJobpositionId")]
-        public ActionServiceResult DeleteListEntity(List<string> listId)
+        public ActionServiceResult DeleteListEntity(List<string> listId, [FromQuery] String organizationType)
         {
-            List<string> resultData = new List<string>();
-            JobpositionBL jobPositionBl = new JobpositionBL();
-            
-            for (int i=0;i<listId.Count();i++)
+            dynamic tmp = null;
+            if (organizationType == "")
             {
-                jobPositionBl.OpenconnectionDd();
-                var tmp = jobPositionBl.DeleteEntityById(listId[i]);
-                jobPositionBl.DisconnectDb();
-             if (tmp!=null)
-                {
-                    resultData.Add(tmp.JobPositionId.ToString());
-                   }
+                List<string> resultData = new List<string>();
+                JobpositionBL jobPositionBl = new JobpositionBL();
 
-            }    
-            
-            if (resultData.Count == 0)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                for (int i = 0; i < listId.Count(); i++)
+                {
+                    jobPositionBl.OpenconnectionDd();
+                     tmp = jobPositionBl.DeleteEntityById(listId[i]);
+                    jobPositionBl.DisconnectDb();
+                    if (tmp != null)
+                    {
+                        resultData.Add(tmp.JobPositionId.ToString());
+                    }
+
+                }
+
+                if (resultData.Count == 0)
+                { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                else
+                {
+                    return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                }
+            }
+            if (tmp == null)
+            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
             }
         }
     }

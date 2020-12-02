@@ -78,14 +78,11 @@
                 </button>
 
 
-                <input id="organizationType" value="" list="brow">
-                <datalist id="brow">
-                    <option value="Internet Explorer">
-                    <option value="Firefox">
-                    <option value="Chrome">
-                    <option value="Opera">
-                    <option value="Safari">
-                </datalist>
+
+                <select id="organizationType">
+                    <option value="">Tất cả chức danh chức vụ</option>
+                </select> 
+               
 
 
             </div>
@@ -114,7 +111,6 @@
                     <thead>
                         <tr style="background-color: #c5c5c5">
                             <th datatype="centrel">STT</th>
-                           
                             <th datatype="centrel">Tên chức danh/chức vụ</th>
                             <th datatype="centrel">Ngày thêm</th>
                             <th datatype="centrel">Ngày sửa đổi</th>
@@ -164,13 +160,20 @@
             <div id="dialog">
                 <div class="dialog-body">
                     <div class="dialog-input-text">
-                        <label style="display:none">ID chức danh/ chức vụ<span> (*)</span></label>
+                        <label id="oldJobpositionId" style="display:none">ID chức danh/ chức vụ<span> (*)</span></label>
                         <input style="display:none" id="jobpositionId" class="text-input" type="text" />
                     </div>
                     <div class="dialog-input-text">
-                        <label>Tên chức danh/ chức vụ<span style="        color: #ff3621
-"> (*)</span></label>
-                        <input id="jobpositionName" class="text-input" type="text" />
+                        <label>Tên chức danh/ chức vụ<span style="color: #ff3621"> (*)</span></label>
+                        <input id="jobpositionName" class="text-input"  value="" list="brow">
+                        <datalist id="brow">
+                            <option value="internet explorer">
+                            <option value="firefox">
+                            <option value="chrome">
+                            <option value="opera">
+                            <option value="safari">
+                        </datalist>
+                        <!--<input id="jobpositionName" class="text-input" type="text" />-->
                     </div>
 
                 </div>

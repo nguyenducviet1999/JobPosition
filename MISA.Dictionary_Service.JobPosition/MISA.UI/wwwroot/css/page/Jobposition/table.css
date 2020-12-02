@@ -48,3 +48,32 @@ tbody tr:nth-child(2n+1) {
 .displaynone{
     display:none;
 }
+table thead tr th:nth-child(1)
+{
+    width: 10%;
+}
+table thead tr th:nth-child(2) {
+    width: 30%;
+}
+table thead tr th:nth-child(3) {
+    width: 30%;
+}
+table thead tr th:nth-child(4) {
+    width: 30%;
+}
+
+table tbody tr td:nth-child(1) {
+    width: 10%;
+}
+
+table tbody tr td:nth-child(2) {
+    width: 30%;
+}
+
+table tbody tr td:nth-child(3) {
+    width: 30%;
+}
+
+table tbody tr td:nth-child(4) {
+    width: 30%;
+}

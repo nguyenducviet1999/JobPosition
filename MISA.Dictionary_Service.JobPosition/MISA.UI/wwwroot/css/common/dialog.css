@@ -1,9 +1,9 @@
-﻿.dialog-modal {
+﻿.dialog-modal{
     display: block;
     font-family: GoogleSans-Regular;
     font-size: 13px;
-    min-height: 90.237px;
-    max-height: 90.237px;
+    min-height: 90.237px !important;
+    max-height: 90.237px !important;
 }
 
     .dialog-modal .dialog-body label {

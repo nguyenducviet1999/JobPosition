@@ -5,13 +5,14 @@ var PageSize;
 var TotalRecord;
 var PageStatus;
 var DialogStatus;
-var Page;
+var OrganizationType;
 $(document).ready(function () {
     //khởi tạo ban đầu giá trị các biến
     CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
     PageSize = Enum.DefaultValue.PageSizeDefault;
     TotalRecord = Enum.DefaultValue.TotalRecordDefault;
     PageStatus = Enum.DefaultValue.PageStatusDefault;
+    OrganizationType = Enum.DefaultValue.OrganizationType;
     jobpositionjs = new JobpositionJS();
     insert_dialog = $(".dialog-modal").dialog({
         minHeight: 180,
@@ -28,7 +29,7 @@ class JobpositionJS {
 
     constructor() {
         me = this;
-        //this.loadData();
+        this.loadOrganizationType();
         this.pagination();
         this.initEvent();
 
@@ -55,16 +56,23 @@ class JobpositionJS {
         //xử lí sự kiện trong dialog
         $("#btn-cancel").click(this.cancelOnClick);
         $("#btn-save").click(this.saveOnClick);
+        //xử lí dự kiện chọn loại tổ chức
+        $("#organizationType").select(me.selectOrganizationType);
+    }
+    loadOrganizationType() {
+        var data = me.callajax("GET", "api/Oganizationtypes", null)["data"];
+        if (data != null) {
+            for (var i = 0; i < data.length; i++) {
+                var tmp = $(`<option value="` + data[i]['organizationTypeId'] + `">` + data[i]['organizationTypeName'] + `</option>`);
+                $("#organizationType").append(tmp);
+            }
+           
+        }
         
     }
-    loadData(data) {
-        //Lấy th từ html
-        me.getall();
-       // me.loadTable(data);
-        me.LoadPageInfor();
-        Enum.PageStatus.NomalData
+    selectOrganizationType() {
+        OrganizationType = $("#organizationType").val();
     }
-   
     callajax(method, url, data) {
         var result = false;
         $.ajax({
