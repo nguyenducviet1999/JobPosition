@@ -57,8 +57,12 @@ class JobpositionJS {
         $("#btn-cancel").click(this.cancelOnClick);
         $("#btn-save").click(this.saveOnClick);
         //xử lí dự kiện chọn loại tổ chức
-        $("#organizationType").select(me.selectOrganizationType);
+        $("#organizationType").change(me.selectOrganizationType);
+        //xử lý dữ
+        $("#jobpositionName").change(me.changeJobpositionName);
+        $("#jobpositionName").keypress(me.changeJobpositionName);
     }
+    //lấy danh sách các loại tổ chức
     loadOrganizationType() {
         var data = me.callajax("GET", "api/Oganizationtypes", null)["data"];
         if (data != null) {
@@ -70,8 +74,43 @@ class JobpositionJS {
         }
         
     }
+    loadInsertData() {
+        var tmp = $("#brow");
+        tmp.empty();
+        var data = me.callajax("GET", "api/Jobpositions/insertdata" + "?organizationType=" + OrganizationType, null)["data"];
+        if (data != null) {
+            for (var i = 0; i < data.length; i++) {
+                var tmp = $(`<option class="insertdata" id="`+data[i]["jobPositionId"]+`" value="` + data[i]['jobPositionName'] + `"></option>`);
+                //tmp.data["jobPositionId"] = data["jobPositionId"];
+                $("#brow").append(tmp);
+            }
+        }
+           
+        
+    }
+    changeJobpositionName() {
+        var tmp = $('#brow option[value="' + $("#jobpositionName").val() + '"]');
+
+        if (tmp.length != 0) {
+            tmp = tmp[0].id;
+            $("#jobpositionId").val(tmp);
+            
+        }
+        else {
+            $("#jobpositionId").val(newguid());
+        }
+    }
+    /**
+     * Hàm xử lý sự kiện chọn loại tổ chức
+     * C
+     * */
     selectOrganizationType() {
         OrganizationType = $("#organizationType").val();
+        CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
+        PageSize = Enum.DefaultValue.PageSizeDefault;
+        me.loadInsertData();
+        me.pagination();
+
     }
     callajax(method, url, data) {
         var result = false;
@@ -91,9 +130,10 @@ class JobpositionJS {
     
   
     loadTable(data) {
-        if (data != null) {
             var tbody = $("#bodytable");
             tbody.empty();
+        if (data != null) {
+           
             for (var i = 0; i < data.length; i++) {
                 var tmp = $(`<tr>
                                 <td datatype="centrel">`+ 1 + `</td> 
@@ -105,6 +145,10 @@ class JobpositionJS {
                 $("#bodytable").append(tmp);
 
             };
+        }
+        if (data == null) {
+            var tbody = $("#bodytable");
+            $("#bodytable").append($(`<img style="display: block;margin-left: auto;margin-right: auto;" src="../content/img/NoData.jpg" />`))
         }
 
 
@@ -172,14 +216,15 @@ class JobpositionJS {
      * */
     searchData(e) {
         if (e.keyCode == 13) {
-            CurrentPageIndex = 1;
-            PageSize = 20;
+            CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
+            PageSize = Enum.DefaultValue.PageSizeDefault;
             PageStatus = Enum.PageStatus.SearchData;
             me.pagination();
         }
     }
     saveData() {
         var success = false;
+        var oldJobPositionId = $("#oldJobpositionId").val();
         var jobposition = {
             jobPositionId: $("#jobpositionId").val(),
             jobPositionName: $("#jobpositionName").val()
@@ -191,7 +236,7 @@ class JobpositionJS {
 
             case Enum.DialogStatus.Add:
                 {
-                    var data = me.callajax("POST", "api/Jobpositions", JSON.stringify(jobposition));
+                    var data = me.callajax("POST", "api/Jobpositions?organizationType=" + OrganizationType , JSON.stringify(jobposition));
                     if (data.success == true) {
                         $.alert({
                             title: 'Thông Báo',
@@ -209,7 +254,7 @@ class JobpositionJS {
             case Enum.DialogStatus.Edit:
                 {
 
-                    var data = me.callajax("PUT", "api/Jobpositions/" + jobposition.jobPositionId, JSON.stringify(jobposition));
+                    var data = me.callajax("PUT", "api/Jobpositions/" + oldJobPositionId +"?organizationType=" + OrganizationType , JSON.stringify(jobposition));
                     if (data.success == true) {
                         $.alert({
                             title: 'Thông Báo',
@@ -234,15 +279,15 @@ class JobpositionJS {
         switch (PageStatus) {
             case Enum.PageStatus.NomalData:
                 {
-                    data = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize, null)["data"];
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countalljobposition", null)["data"];
+                    data = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize +"?organizationType=" + OrganizationType, null)["data"];
+                    totalRecord = me.callajax("GET", "api/Jobpositions/countalljobposition?organizationType=" + OrganizationType, null)["data"];
                     break;
                 }
             case Enum.PageStatus.SearchData:
                 {
                     var searchKey = $("#search").val();
-                    data = me.callajax("GET", "api/Jobpositions/searchpaging/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey,null)["data"];
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countallsearchdata?searchKey=" + searchKey, null)["data"];
+                    data = me.callajax("GET", "api/Jobpositions/searchpaging/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey +"&organizationType=" + OrganizationType ,null)["data"];
+                    totalRecord = me.callajax("GET", "api/Jobpositions/countallsearchdata?organizationType=" + OrganizationType +"&searchKey=" + searchKey, null)["data"];
                     break;
                 }    
         }
@@ -290,6 +335,7 @@ class JobpositionJS {
         me.clearDialog();
         insert_dialog.dialog("open");
         $("#jobpositionId").val(newguid());
+       
     }
     editOnClick() {
         
@@ -328,7 +374,7 @@ class JobpositionJS {
             for (var i = 0; i < $(".row-selected").length; i = i + 1) {
                 listId.push($($(".row-selected")[i]).children()[1].textContent);
             }
-            var data = me.callajax("DELETE", "api/Jobpositions/deleteListJobpositionId", JSON.stringify(listId))["data"];
+            var data = me.callajax("DELETE", "api/Jobpositions/deleteListJobpositionId?organizationType=" + OrganizationType, JSON.stringify(listId))["data"];
             if (data.length <= 0) {
                 $.alert({
                     title: 'Thông báo',

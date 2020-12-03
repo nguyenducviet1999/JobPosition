@@ -11,6 +11,7 @@ namespace MISA.DL.Models
 {
    public class OrganizationtypejobpositionDL : BaseDBContext<Organizationtypejobposition>
     {
+        
         public List<Jobposition> GetListEntityPageData(int startIndex, int pageSize, string oganizationType)
         {
             var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetListJobposition('"+oganizationType+"'," + startIndex + "," + pageSize + ")"));
@@ -19,12 +20,11 @@ namespace MISA.DL.Models
 
             else return tmp;
 
-
         }
 
         public Jobposition InsertEntity(Jobposition entity, string oganizationType)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Insert('" + oganizationType+ "','" + entity.JobPositionId + "')"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Insert('" + oganizationType+ "','" + entity.JobPositionId + "','"+ entity.JobPositionName+ "')"));
             if (tmp == null)
                 return null;
 
@@ -34,19 +34,25 @@ namespace MISA.DL.Models
 
         public Jobposition UpdateEntity(Jobposition entity,string oldJobpositionId, string oganizationType)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Update('"+oganizationType+"','" + oldJobpositionId + "','" + entity.JobPositionId + "')"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_Update('"+oganizationType+"','" + oldJobpositionId + "','" + entity.JobPositionId + "','" + entity.JobPositionName+ "')"));
             if (tmp == null)
                 return null;
 
             else return tmp[0];
 
-
-
         }
-     
+        public Jobposition DeleteEntityById(string id, string oganizationType)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_DeleteById('"+ oganizationType + "','"+ id + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp[0];
+        }
+
         public long CountAllData(string oganizationType)
         {
-            var tmp = this.dBContext.ExecuteSQL("CallProc_Organizationtypejobposition_CountAllDtata('"+ oganizationType + "')");
+            var tmp = this.dBContext.ExecuteSQL("Call Proc_Organizationtypejobposition_CountAllDtata('"+ oganizationType + "')");
             tmp.Read();
 
             return long.Parse(tmp["countall"].ToString());
@@ -60,7 +66,17 @@ namespace MISA.DL.Models
         }
         public List<Jobposition> GetListEntitySearchPageData(int startIndex, int pageSize, string searchKey, string oganizationType)
         {
-            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetSearchPageData('"+oganizationType+"'" + startIndex + "," + pageSize + ",'" + searchKey + "')"));
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetSearchPageData('"+oganizationType+"'," + startIndex + "," + pageSize + ",'" + searchKey + "')"));
+            if (tmp == null)
+                return null;
+
+            else return tmp;
+
+
+        }
+        public List<Jobposition> GetListInsertEntity(string oganizationType)
+        {
+            var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Organizationtypejobposition_GetListInsertData('"+ oganizationType + "')"));
             if (tmp == null)
                 return null;
 

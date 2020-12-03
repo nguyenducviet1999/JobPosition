@@ -73,7 +73,7 @@ namespace MISA.UI.Controllers
         public ActionServiceResult CoutAllSearchData([FromQuery] String searchKey)
         {
             var tmp = new JobpositionBL().CountAllSearchData(searchKey);
-            if (tmp == null)
+            if (tmp<0)
             { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
             else
             {

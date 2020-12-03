@@ -13,7 +13,7 @@ namespace MISA.BL.Models
     {
         OrganizationtypejobpositionDL _organizationtypejobposition = new OrganizationtypejobpositionDL();
         public String OganizationType;
-        OrganizationtypejobpositionBL(string oganizationType)
+      public  OrganizationtypejobpositionBL(string oganizationType)
         {
             OganizationType = oganizationType;
         }
@@ -28,41 +28,62 @@ namespace MISA.BL.Models
         }
  
    
-        public List<Jobposition> GetListEntityPageData(int pageIndex, int pageSize, string oganizationType)
+        public List<Jobposition> GetListEntityPageData(int pageIndex, int pageSize)
         {
             int _startIndex = (pageIndex - 1) * pageSize;
 
-            var tmp = _organizationtypejobposition.GetListEntityPageData(_startIndex, pageSize, oganizationType);
+            var tmp = _organizationtypejobposition.GetListEntityPageData(_startIndex, pageSize, OganizationType);
             return tmp;
         }
-        public List<Jobposition> GetListEntitySearchPageData(int pageIndex, int pageSize, string searchKey, string oganizationType)
+        public List<Jobposition> GetListEntitySearchPageData(int pageIndex, int pageSize, string searchKey)
         {
             int _startIndex = (pageIndex - 1) * pageSize;
 
-            var tmp = _organizationtypejobposition.GetListEntitySearchPageData(_startIndex, pageSize, searchKey, oganizationType);
+            var tmp = _organizationtypejobposition.GetListEntitySearchPageData(_startIndex, pageSize, searchKey, OganizationType);
             return tmp;
         }
   
-        public long CountAllData(string oganizationType)
+        public long CountAllData()
         {
-            var tmp = _organizationtypejobposition.CountAllData( oganizationType);
+            var tmp = _organizationtypejobposition.CountAllData(OganizationType);
             return tmp;
         }
     
-        public long CountAllSearchData(string searchKey, string oganizationType)
+        public long CountAllSearchData(string searchKey)
         {
-            var tmp = _organizationtypejobposition.CountAllSearchData(searchKey, oganizationType);
+            var tmp = _organizationtypejobposition.CountAllSearchData(searchKey, OganizationType);
             return tmp;
         }
     
-        public Jobposition InsertEntity(Jobposition entity, string oganizationType)
+        public Jobposition InsertEntity(Jobposition entity)
         {
-            return _organizationtypejobposition.InsertEntity(entity, oganizationType);
+            return _organizationtypejobposition.InsertEntity(entity, OganizationType);
         }
     
-        public Jobposition UpdateEntity(Jobposition entity,string oldJobpositionId, string oganizationType)
+        public Jobposition UpdateEntity(Jobposition entity,string oldJobpositionId)
         {
-            return _organizationtypejobposition.UpdateEntity(entity, oldJobpositionId, oganizationType);
+            return _organizationtypejobposition.UpdateEntity(entity, oldJobpositionId, OganizationType);
         }
+        public Jobposition DeleteEntityById(string id)
+        {
+            var tmp = _organizationtypejobposition.DeleteEntityById(id, OganizationType);
+            if (tmp != null)
+            {
+                return tmp;
+            }
+            return new Jobposition();
+
+
+        }
+        public List<Jobposition> GetListInsertEntity()
+        {
+            var tmp = _organizationtypejobposition.GetListInsertEntity(OganizationType);
+         
+                return tmp;
+         
+
+
+        }
+
     }
 }
