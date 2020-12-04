@@ -13,6 +13,10 @@
         TotalRecordDefault: 0,
         PageStatusDefault: 1,
         OrganizationType: ""
+    },
+    MsgType: {
+        Success: 1,
+        Failure: 2
     }
    
 

@@ -45,7 +45,11 @@ class JobpositionJS {
         $("#refreshPage").click(me.pagination);
         $("#numberRecordPage").on("keypress", this.selectNumberRecordPage);
         //xử lí sự kiện tìm kiếm
+       
         $("#search").on("keypress", this.searchData);
+       
+
+
         // xử lý sự kiện chỉnh sửa bản ghi
         $("table").on("click", "tbody tr", this.rowOnClick);
         $("table").on("dblclick", "tbody tr", this.rowOnDoubleClick);
@@ -214,8 +218,8 @@ class JobpositionJS {
      * hàm xử lý load dữ liệu phân trang
      * CreatedBy: NDViet (27/11/2020)
      * */
-    searchData(e) {
-        if (e.keyCode == 13) {
+    searchData() {
+         {
             CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
             PageSize = Enum.DefaultValue.PageSizeDefault;
             PageStatus = Enum.PageStatus.SearchData;
@@ -293,6 +297,7 @@ class JobpositionJS {
         }
         me.loadTable(data);
         me.LoadPageInfor(totalRecord);
+        me.loadInsertData();
         
     }
     rowOnClick(event) {
@@ -320,7 +325,7 @@ class JobpositionJS {
         this.classList.add("row-selected");
         DialogStatus = Enum.DialogStatus.Edit;
         me.clearDialog();
-        insert_dialog.dialog("open");
+        me.showDialog();
         var id = $(this).children()[1].textContent;
         var Name = $(this).children()[2].textContent;
         $("#jobpositionId").val(id);
@@ -333,7 +338,7 @@ class JobpositionJS {
     addOnClick() {
         DialogStatus = Enum.DialogStatus.Add;
         me.clearDialog();
-        insert_dialog.dialog("open");
+        me.showDialog();
         $("#jobpositionId").val(newguid());
        
     }
@@ -354,7 +359,7 @@ class JobpositionJS {
         else {
             DialogStatus = Enum.DialogStatus.Edit;
             me.clearDialog();
-            insert_dialog.dialog("open");
+            me.showDialog();
             var id = $(".row-selected").children()[1].textContent;
             var Name = $(".row-selected").children()[2].textContent;
             $("#jobpositionId").val(id);
@@ -386,7 +391,7 @@ class JobpositionJS {
                     title: 'Thông báo',
                     content: "Xóa dữ liệu thành công.",
                 });
-                me.showToastMsgSuccess("Xóa dữ liệu thành công");
+                me.showToastMsgSuccess(Enum.MsgType.Success, "Xóa dữ liệu thành công");
                 me.pagination();
             }
         }
@@ -395,26 +400,28 @@ class JobpositionJS {
     * xử lý sự kiện click nút hủy trong dialog
     * */
     cancelOnClick() {
+        
         $.confirm({
-            title: 'Confirm!',
+            title: 'Xác nhận!',
             content: 'Bạn có chắc muốn đóng khung nhập liệu',
             buttons: {
-                confirm: function () {
-                    insert_dialog.dialog("close");
+                "Đồng ý": function () {
+                    me.hideDialog();
                 },
-                cancel: function () {
+                "Hủy": function () {
                     
                 }
                
             }
         });
-        
+        $($(".btn-default")[0]).text("Xác nhận");
+        $($(".btn-default")[1]).text("Hủy");
     }
     saveOnClick() {
        var tmp = me.validate();
         if (tmp == "") {
             me.saveData();
-            insert_dialog.dialog("close");
+            me.hideDialog();
         }
         else {
             $.alert({
@@ -441,12 +448,60 @@ class JobpositionJS {
         $("#jobpositionName").val("");
     }
 
-    showToastMsgSuccess(text) {
-    $('.toastMsg-text').text(text);
-    $('.toastMsg').show();
-    setTimeout(function () {
-        $('.toastMsg').hide();
-    }, 4000);
-}
+    showToastMsgSuccess(type, text) {
+        switch (type) {
+            case Enum.MsgType.Failure:
+                {
+                    $("#toastMsg").removeClass();
+                    $("#iconTypeMsg").removeClass();
+                    
+                    $("#toastMsg").addClass("color-success");
+                    $("#iconTypeMsg").addClass("icon-success");
+                   $("#typeMsg").text("Thành công")
+                    break;
+                }
+            case Enum.MsgType.Success:
+                {
+                    $("#toastMsg").removeClass();
+                    $("#iconTypeMsg").removeClass();
 
+                    $("#toastMsg").addClass("color-failure");
+                    $("#iconTypeMsg").addClass("icon-failure");
+                    $("#typeMsg").text("Thành công")
+                    break;
+                }
+        }
+
+        $('#text-msg').text(text);
+    $('#toastMsg').show();
+    setTimeout(function () {
+        $('#toastMsg').hide();
+    }, 40000000);
+}
+    showDialog() {
+        insert_dialog.dialog("open");
+        var tmp = "";
+        if ($("#organizationType option:selected").val() != "") {
+            tmp = " của " + $("#organizationType option:selected").text();
+        }
+       
+        switch (DialogStatus) {
+
+            case Enum.DialogStatus.Add:
+                {
+                    $(".ui-dialog-title").text("Thêm danh mục"+tmp);
+                    break;
+                }
+            case Enum.DialogStatus.Edit:
+                {
+                    $(".ui-dialog-title").text("Sửa danh mục"+ tmp);
+                    break;
+                }
+        }
+       
+    }
+    hideDialog() {
+        insert_dialog.dialog("close");
+        me.clearDialog();
+    }
 }

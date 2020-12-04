@@ -12,9 +12,9 @@
 }
 
 
-.toastMsg {
+#toastMsg {
     display: none;
-    background-color: #fff;
+  
     border-color: #349a4a;
     border: 1px solid #2FBE8E;
     border-radius: 4px;
@@ -27,26 +27,34 @@
     padding: 8px 16px;
 }
 
-.toastMsg-img-success {
-    background-image: url('/content/icon/successv1.png');
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin-right: 8px;
-    background-size: contain;
-}
-.toastMsg-img-failure {
-    background-image: url('/content/icon/failure.png');
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin-right: 8px;
-    background-size: contain;
-}
+    .icon-success {
+        background-image: url('/content/icon/successv1.png');
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-right: 8px;
+        background-size: contain;
+  
+    }
+    .icon-failure {
+        background-image: url('/content/icon/failure.png');
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-right: 8px;
+        background-size: contain;
+        
+    }
+    .color-success {
+        background-color:#029f44;
+    }
+    .color-failure {
+        background-color: #9f2a22;
+    }
 
-.toastMsg-text {
+#text-msg {
     font-size: 13px;
-    color: #000;
+    color: #fff;
     font-weight: 400 !important;
     margin-top: 4px;
     margin-left: 28px;
