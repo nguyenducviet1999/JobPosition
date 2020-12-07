@@ -158,6 +158,7 @@ namespace MISA.API.Controllers
             dynamic tmp = null;
             if (organizationTypeId == "" || organizationTypeId == null)
             {
+                entity.JobPositionId = id;
                 tmp = new JobpositionBL().UpdateEntity(entity);
 
             }
