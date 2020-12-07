@@ -26,15 +26,27 @@ $(document).ready(function () {
    
 })
 class JobpositionJS {
+    /**
+     * Hàm khởi tạo ban đầu
+     * Created By:NDVIET
+     * Created Date: 1/12/2020
+     * */
 
     constructor() {
         me = this;
+        me.host = "https://localhost:44398";
+        me.apiRouter = "/api/v1/";
         this.loadOrganizationType();
         this.pagination();
         this.initEvent();
 
 
     }
+/**
+* Hàm gán sự kiện 
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     initEvent() {
         //xử lý sự kiện phân trang
         $("#firstPage").click(this.firstPage);
@@ -68,7 +80,7 @@ class JobpositionJS {
     }
     //lấy danh sách các loại tổ chức
     loadOrganizationType() {
-        var data = me.callajax("GET", "api/Oganizationtypes", null)["data"];
+        var data = me.callajax("GET", "Organizationtypes", null)["data"];
         if (data != null) {
             for (var i = 0; i < data.length; i++) {
                 var tmp = $(`<option value="` + data[i]['organizationTypeId'] + `">` + data[i]['organizationTypeName'] + `</option>`);
@@ -78,10 +90,15 @@ class JobpositionJS {
         }
         
     }
+/**
+* Hàm load dữ liệu cho ô lựa chọn loại tổ chức
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     loadInsertData() {
         var tmp = $("#brow");
         tmp.empty();
-        var data = me.callajax("GET", "api/Jobpositions/insertdata" + "?organizationType=" + OrganizationType, null)["data"];
+        var data = me.callajax("GET", "Organizationtypes/insertings-jobpositions" + "?organizationTypeId=" + OrganizationType, null)["data"];
         if (data != null) {
             for (var i = 0; i < data.length; i++) {
                 var tmp = $(`<option class="insertdata" id="`+data[i]["jobPositionId"]+`" value="` + data[i]['jobPositionName'] + `"></option>`);
@@ -92,6 +109,11 @@ class JobpositionJS {
            
         
     }
+      /**
+     * Hàm xử lý sự kiện khi giá trị dữ liệu nhập tên chức danh chức vụ thay đổi
+     * Created By:NDVIET
+     * Created Date: 1/12/2020
+     * */
     changeJobpositionName() {
         var tmp = $('#brow option[value="' + $("#jobpositionName").val() + '"]');
 
@@ -104,10 +126,11 @@ class JobpositionJS {
             $("#jobpositionId").val(newguid());
         }
     }
-    /**
-     * Hàm xử lý sự kiện chọn loại tổ chức
-     * C
-     * */
+/**
+* Hàm Xử lí sự kiện thay đổi giá trị lựa chọn loại tổ chức
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     selectOrganizationType() {
         OrganizationType = $("#organizationType").val();
         CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
@@ -116,11 +139,16 @@ class JobpositionJS {
         me.pagination();
 
     }
+/**
+* Hàm gọi ajax
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     callajax(method, url, data) {
         var result = false;
         $.ajax({
             type: method,
-            url: url,
+            url: me.host  + me.apiRouter + url,
             dataType: 'json',
             contentType: 'application/json',
             data: data,
@@ -132,7 +160,11 @@ class JobpositionJS {
         return result;
     }
     
-  
+/**
+* Hàm load dữ liệu vào bảng với dữ liệu được truyền vào
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     loadTable(data) {
             var tbody = $("#bodytable");
             tbody.empty();
@@ -157,6 +189,11 @@ class JobpositionJS {
 
 
     }
+/**
+* Hàm load dữ liệu thông tin trang(số trang, số lượng hiển thị, trang hiện tại,..)
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     LoadPageInfor(totalRecord) {
 
         TotalRecord = totalRecord;
@@ -174,6 +211,11 @@ class JobpositionJS {
             
         }
     }
+/**
+* Xử lí sự kiện chuyển trang tiếp theo
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     nextPage() {
         if (CurrentPageIndex < Math.ceil(TotalRecord / PageSize)) {
             CurrentPageIndex++;
@@ -207,7 +249,11 @@ class JobpositionJS {
         CurrentPageIndex = Math.ceil(TotalRecord / PageSize);
         me.pagination();
     }
-
+/**
+* Xử lí sự kiện thay đổi số lượng hiển thị trên một trang
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     selectNumberRecordPage(e) {
         if (e.keyCode == 13) {
             PageSize = $("#numberRecordPage").val();
@@ -218,6 +264,11 @@ class JobpositionJS {
      * hàm xử lý load dữ liệu phân trang
      * CreatedBy: NDViet (27/11/2020)
      * */
+/**
+* Xử lí sự kiện tìm kiếm dữ liệu
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     searchData() {
          {
             CurrentPageIndex = Enum.DefaultValue.CurrentPageIndexDefault;
@@ -226,6 +277,11 @@ class JobpositionJS {
             me.pagination();
         }
     }
+/**
+* Xử lí lưu dữ liệu nhập từ dialog
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     saveData() {
         var success = false;
         var oldJobPositionId = $("#oldJobpositionId").val();
@@ -234,42 +290,34 @@ class JobpositionJS {
             jobPositionName: $("#jobpositionName").val()
         }
 
-       // $("#jobpositionId").val();
-      //  $("#jobpositionName").val();
+
         switch (DialogStatus) {
 
             case Enum.DialogStatus.Add:
                 {
-                    var data = me.callajax("POST", "api/Jobpositions?organizationType=" + OrganizationType , JSON.stringify(jobposition));
+                    var data = me.callajax("POST", "Jobpositions?organizationTypeId=" + OrganizationType , JSON.stringify(jobposition));
                     if (data.success == true) {
-                        $.alert({
-                            title: 'Thông Báo',
-                            content: "Thêm dữ liệu thành công.",
-                        });
+                        me.showToastMsg(Enum.MsgType.Success, "Thêm dữ liệu thành công.");
+
                     }
                     else {
-                        $.alert({
-                            title: 'Thông Báo',
-                            content: "Thêm dữ liệu thất bại.",
-                        });
+                        me.showToastMsg(Enum.MsgType.Failure, "Thêm dữ liệu thất bại.");
+
                     }
+
                     break;
                 }
             case Enum.DialogStatus.Edit:
                 {
 
-                    var data = me.callajax("PUT", "api/Jobpositions/" + oldJobPositionId +"?organizationType=" + OrganizationType , JSON.stringify(jobposition));
+                    var data = me.callajax("PUT", "Jobpositions/" + oldJobPositionId +"?organizationTypeId=" + OrganizationType , JSON.stringify(jobposition));
                     if (data.success == true) {
-                        $.alert({
-                            title: 'Thông Báo',
-                            content: "Sửa dữ liệu thành công.",
-                        });
+                        me.showToastMsg(Enum.MsgType.Success, "Sửa dữ liệu thành công.");
+                     
                     }
                     else {
-                        $.alert({
-                            title: 'Thông Báo',
-                            content: "Sửa dữ liệu thất bại.",
-                        });
+                        me.showToastMsg(Enum.MsgType.Failure, "Sửa dữ liệu thất bại.");
+                      
                     }
                    
                     break;
@@ -277,29 +325,28 @@ class JobpositionJS {
         }
         me.pagination();
     }
+/**
+* Xử lí lấy dữ liệu phân trang
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     pagination() {
         var data;
         var totalRecord;
-        switch (PageStatus) {
-            case Enum.PageStatus.NomalData:
-                {
-                    data = me.callajax("GET", "api/Jobpositions/paging/" + CurrentPageIndex + "/" + PageSize +"?organizationType=" + OrganizationType, null)["data"];
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countalljobposition?organizationType=" + OrganizationType, null)["data"];
-                    break;
-                }
-            case Enum.PageStatus.SearchData:
-                {
-                    var searchKey = $("#search").val();
-                    data = me.callajax("GET", "api/Jobpositions/searchpaging/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey +"&organizationType=" + OrganizationType ,null)["data"];
-                    totalRecord = me.callajax("GET", "api/Jobpositions/countallsearchdata?organizationType=" + OrganizationType +"&searchKey=" + searchKey, null)["data"];
-                    break;
-                }    
-        }
+       
+        var searchKey = $("#search").val();
+        data = me.callajax("GET", "Jobpositions/" + CurrentPageIndex + "/" + PageSize + "?searchKey=" + searchKey +"&organizationTypeId=" + OrganizationType ,null)["data"];
+        totalRecord = me.callajax("GET", "Jobpositions/total?organizationTypeId=" + OrganizationType +"&searchKey=" + searchKey, null)["data"];
         me.loadTable(data);
         me.LoadPageInfor(totalRecord);
         me.loadInsertData();
         
     }
+/**
+* Xử lí sự kiện click một bản ghi trong bảng
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     rowOnClick(event) {
         if (event.ctrlKey) {
 
@@ -321,6 +368,11 @@ class JobpositionJS {
             }
         }
     }
+/**
+* Xử lí sự kiện double click vào một bản ghi trong bảng để chỉnh sửa
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     rowOnDoubleClick() {
         this.classList.add("row-selected");
         DialogStatus = Enum.DialogStatus.Edit;
@@ -335,6 +387,11 @@ class JobpositionJS {
 
 
     }
+/**
+* Xử lí sự kiện khi click vào nút thêm bản ghi
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     addOnClick() {
         DialogStatus = Enum.DialogStatus.Add;
         me.clearDialog();
@@ -342,6 +399,11 @@ class JobpositionJS {
         $("#jobpositionId").val(newguid());
        
     }
+/**
+* Xử lí sự kiện khi click vào nút sửa bản ghi
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     editOnClick() {
         
         if ($(".row-selected").length < 1) {
@@ -367,6 +429,11 @@ class JobpositionJS {
             $("#jobpositionName").val(Name);
         }
     }
+/**
+* Xử lí sự kiện khi click nút xóa bản ghi
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     deleteOnClick() {
         if ($(".row-selected").length < 1) {
             $.alert({
@@ -379,26 +446,22 @@ class JobpositionJS {
             for (var i = 0; i < $(".row-selected").length; i = i + 1) {
                 listId.push($($(".row-selected")[i]).children()[1].textContent);
             }
-            var data = me.callajax("DELETE", "api/Jobpositions/deleteListJobpositionId?organizationType=" + OrganizationType, JSON.stringify(listId))["data"];
+            var data = me.callajax("DELETE", "Jobpositions?organizationTypeId=" + OrganizationType, JSON.stringify(listId))["data"];
             if (data.length <= 0) {
-                $.alert({
-                    title: 'Thông báo',
-                    content: "Xóa dữ liệu thất bại.",
-                });
+                me.showToastMsg(Enum.MsgType.Success, "Xóa dữ liệu thất bại");
             }
             else {
-                $.alert({
-                    title: 'Thông báo',
-                    content: "Xóa dữ liệu thành công.",
-                });
-                me.showToastMsgSuccess(Enum.MsgType.Success, "Xóa dữ liệu thành công");
+              
+                me.showToastMsg(Enum.MsgType.Success, "Xóa dữ liệu thành công");
                 me.pagination();
             }
         }
     }
-   /**
-    * xử lý sự kiện click nút hủy trong dialog
-    * */
+/**
+* Xử lí sự kiện khi click nút hủy trong bản ghi
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     cancelOnClick() {
         
         $.confirm({
@@ -417,6 +480,11 @@ class JobpositionJS {
         $($(".btn-default")[0]).text("Xác nhận");
         $($(".btn-default")[1]).text("Hủy");
     }
+/**
+* Xử lí sự kiện click nút lưu trong dialog
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     saveOnClick() {
        var tmp = me.validate();
         if (tmp == "") {
@@ -432,6 +500,11 @@ class JobpositionJS {
         }
        
     }
+/**
+* Hàm kiểm tra dữ liệu nhập
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     validate() {
         var mess = "";
         if ($("#jobpositionId").val().length < 36) {
@@ -443,14 +516,23 @@ class JobpositionJS {
         return mess;
     }
 
+/**
+* Hàm làm rỗng giá trị nhập trong dialog
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     clearDialog() {
         $("#jobpositionId").val("");
         $("#jobpositionName").val("");
     }
-
-    showToastMsgSuccess(type, text) {
+/**
+* Hàm hiển thị toast message 
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
+    showToastMsg(type, text) {
         switch (type) {
-            case Enum.MsgType.Failure:
+            case Enum.MsgType.Success:
                 {
                     $("#toastMsg").removeClass();
                     $("#iconTypeMsg").removeClass();
@@ -460,14 +542,14 @@ class JobpositionJS {
                    $("#typeMsg").text("Thành công")
                     break;
                 }
-            case Enum.MsgType.Success:
+            case Enum.MsgType.Failure:
                 {
                     $("#toastMsg").removeClass();
                     $("#iconTypeMsg").removeClass();
 
                     $("#toastMsg").addClass("color-failure");
                     $("#iconTypeMsg").addClass("icon-failure");
-                    $("#typeMsg").text("Thành công")
+                    $("#typeMsg").text("Thất bại")
                     break;
                 }
         }
@@ -476,8 +558,13 @@ class JobpositionJS {
     $('#toastMsg').show();
     setTimeout(function () {
         $('#toastMsg').hide();
-    }, 40000000);
-}
+    }, 4000);
+    }
+/**
+* Hàm mở dialog
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     showDialog() {
         insert_dialog.dialog("open");
         var tmp = "";
@@ -500,6 +587,11 @@ class JobpositionJS {
         }
        
     }
+/**
+* Hàm ẩn dialog
+* Created By:NDVIET
+* Created Date: 1/12/2020
+* */
     hideDialog() {
         insert_dialog.dialog("close");
         me.clearDialog();

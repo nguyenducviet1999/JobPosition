@@ -7,7 +7,7 @@ namespace MISA.Entity
     {
 
         public Guid JobPositionId { get; set; }
-        public string OrganizationCode { get; set; }
+        public String OrganizationCode { get; set; }
 
        
     }

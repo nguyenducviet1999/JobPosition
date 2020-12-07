@@ -26,6 +26,13 @@ namespace MISA.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("https://localhost:44374", "https://localhost:60735").AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +44,7 @@ namespace MISA.API
             }
 
             app.UseHttpsRedirection();
+            app.UseCors();
 
             app.UseRouting();
 

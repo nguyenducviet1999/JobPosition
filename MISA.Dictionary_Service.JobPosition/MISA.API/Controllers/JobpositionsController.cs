@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MISA.API.Common;
+using MISA.API.Models;
 using MISA.BL.Interface;
 using MISA.BL.Models;
 using MISA.Entity;
@@ -12,82 +14,256 @@ using MISA.Entity.Base;
 
 namespace MISA.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class JobpositionsController : ControllerBase
     {
-        //private readonly IBaseBL<BaseEntity> baseBL;
+      
+       
 
-        //public JobpositionsController(IBaseBL<BaseEntity> baseBL)
-        //{
-        //    this.baseBL = baseBL;
-        //}
-
-
-        // GET: api/<JobpositionsController>
-        [HttpGet]
-        public List<Jobposition> Get()
-        {
-            //var entity = baseBL.GetListEntity();
-            return new JobpositionBL().GetListEntity();
-        }
-
+        /// <summary>
+        /// Hàm lấy chức danh, chức vụ theo id
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="id">Id chức danh chức vụ</param>
+        /// <param name="organizationTypeId">Id loại tổ chức </param>
+        /// <returns></returns>
         // GET api/<JobpositionsController>/5
         [HttpGet("{id}")]
-        public Jobposition Get(String id)
+        public ActionServiceResult Get(String id, [FromQuery] String organizationTypeId)
         {
-            return new JobpositionBL().GetEntityById(id) ;
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+
+                tmp = new JobpositionBL().GetEntityById(id);
+
+            }
+            if (tmp == null)
+            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
         }
-        [HttpGet("countalljobposition")]
-        public long CoutAllData(String id)
+        /// <summary>
+        /// Hàm đếm tổng số lượng các chức danh, chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
+        [HttpGet("total")]
+        public ActionServiceResult CoutAllSearchData([FromQuery] String searchKey, [FromQuery] String organizationTypeId)
         {
-            return new JobpositionBL().CountAllData();
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                tmp = new JobpositionBL().CountAllSearchData(searchKey);
+
+            }
+            else
+            {
+                tmp = new OrganizationtypejobpositionBL(organizationTypeId).CountAllSearchData(searchKey);
+            }
+            if (tmp == null)
+            {
+                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+            }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
         }
-        [HttpGet("paging/{pageindex}/{pagesize}")]
-        public List<Jobposition> GetPageData(int pageindex, int pagesize)
+        /// <summary>
+        /// Hàm lấy dữ liệu phân trang chức danh, chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="pageindex">Giá trị trang hiện tại</param>
+        /// <param name="pagesize">Số lượng bản ghi trong một trang</param>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
+        [HttpGet("{pageindex}/{pagesize}")]
+        public ActionServiceResult GetSearchPageData(int pageindex, int pagesize, [FromQuery] string searchKey, [FromQuery] String organizationTypeId)
         {
-            return new JobpositionBL().GetListEntityPageData(pageindex, pagesize);
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                tmp = new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
+
+            }
+            else
+            {
+                tmp = new OrganizationtypejobpositionBL(organizationTypeId).GetListEntitySearchPageData(pageindex, pagesize, searchKey);
+            }
+            if (tmp == null)
+            {
+                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+            }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
         }
-
-        [HttpGet("countalljobposition")]
-        public long CoutAllSearchData(String searchKey)
-        {
-            return new JobpositionBL().CountAllSearchData(searchKey);
-        }
-        [HttpGet("searchpaging/{pageindex}/{pagesize}")]
-        public List<Jobposition> GetSearchPageData(int pageindex, int pagesize,[FromBody]string searchKey)
-        {
-            return new JobpositionBL().GetListEntitySearchPageData(pageindex, pagesize, searchKey);
-        }
+       
 
 
-        [HttpGet("organizationtype/{OrganizationTypeId}")]
-        public List<Jobposition> GetListEntityInJobpositionType(String OrganizationTypeId)
-         {
-            return new JobpositionBL().GetListEntityInJobpositionType(OrganizationTypeId);
-        }
-
-
+        /// <summary>
+        /// Thêm một chức danh chức vụ mới
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="entity">Đối tượng chức danh chức vụ mới</param>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
         // POST api/<JobpositionsController>
         [HttpPost]
-        public Jobposition Post([FromBody] Jobposition entity)
+        public ActionServiceResult Post([FromBody] Jobposition entity, [FromQuery] String organizationTypeId)
         {
-            return new JobpositionBL().InsertEntity(entity);
-        }
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                tmp = new JobpositionBL().InsertEntity(entity);
 
+            }
+            else
+            {
+                tmp = new OrganizationtypejobpositionBL(organizationTypeId).InsertEntity(entity);
+            }
+
+            if (tmp == null)
+            {
+                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+            }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
+        }
+        /// <summary>
+        /// Sửa chức danh, chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="id">Id chức danh, chức vụ</param>
+        /// <param name="entity">Đối tượng sau khi chỉnh sửa</param>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
         // PUT api/<JobpositionsController>/5
         [HttpPut("{id}")]
-        public Jobposition Put(Guid id, [FromBody] Jobposition entity)
+        public ActionServiceResult Put(Guid id, [FromBody] Jobposition entity, [FromQuery] String organizationTypeId)
         {
-            entity.JobPositionId = id;
-            return new JobpositionBL().UpdateEntity(entity);
-        }
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                tmp = new JobpositionBL().UpdateEntity(entity);
 
+            }
+            else
+            {
+
+                tmp = new OrganizationtypejobpositionBL(organizationTypeId).UpdateEntity(entity, id.ToString()); ;
+            }
+            if (tmp == null)
+            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
+        }
+        /// <summary>
+        /// Xóa một chức danh chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="id">Id chức danh chức vụ cần xóa</param>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
         // DELETE api/<JobpositionsController>/5
         [HttpDelete("{id}")]
-        public Jobposition Delete(String id)
+        public ActionServiceResult Delete(String id, [FromQuery] String organizationTypeId)
         {
-            return new JobpositionBL().DeleteEntityById(id);
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                tmp = new JobpositionBL().DeleteEntityById(id);
+
+            }
+            else
+            {
+                tmp = new OrganizationtypejobpositionBL(organizationTypeId).DeleteEntityById(id);
+            }
+
+            if (tmp == null)
+            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            else
+            {
+                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+            }
+        }
+        /// <summary>
+        /// Hàm xóa danh sách chức danh chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="listId">Danh sách ID chức danh chức vụ muốn xóa</param>
+        /// <param name="organizationTypeId">Id loại tổ chức</param>
+        /// <returns></returns>
+        [HttpDelete]
+        public ActionServiceResult DeleteListEntity(List<string> listId, [FromQuery] String organizationTypeId)
+        {
+            dynamic tmp = null;
+            if (organizationTypeId == "" || organizationTypeId == null)
+            {
+                List<string> resultData = new List<string>();
+                JobpositionBL jobPositionBl = new JobpositionBL();
+
+                for (int i = 0; i < listId.Count(); i++)
+                {
+                    jobPositionBl.OpenconnectionDd();
+                    tmp = jobPositionBl.DeleteEntityById(listId[i]);
+                    jobPositionBl.DisconnectDb();
+                    if (tmp != null)
+                    {
+                        resultData.Add(tmp.JobPositionId.ToString());
+                    }
+
+                }
+
+                if (resultData.Count == 0)
+                { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                else
+                {
+                    return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                }
+            }
+            else
+            {
+                List<string> resultData = new List<string>();
+                OrganizationtypejobpositionBL organizationtypeJobPositionBl = new OrganizationtypejobpositionBL(organizationTypeId);
+
+                for (int i = 0; i < listId.Count(); i++)
+                {
+                    organizationtypeJobPositionBl.OpenconnectionDd();
+                    tmp = organizationtypeJobPositionBl.DeleteEntityById(listId[i]);
+                    organizationtypeJobPositionBl.DisconnectDb();
+                    if (tmp != null)
+                    {
+                        resultData.Add(tmp.JobPositionId.ToString());
+                    }
+
+                }
+
+                if (resultData.Count == 0)
+                { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                else
+                {
+                    return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                }
+            }
+
         }
     }
 }

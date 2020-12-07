@@ -67,11 +67,9 @@ namespace MISA.BL.Models
         public Jobposition DeleteEntityById(string id)
         {
             var tmp = _organizationtypejobposition.DeleteEntityById(id, OganizationType);
-            if (tmp != null)
-            {
+          
                 return tmp;
-            }
-            return new Jobposition();
+           
 
 
         }
