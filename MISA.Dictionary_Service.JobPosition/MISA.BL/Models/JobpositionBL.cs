@@ -133,5 +133,28 @@ namespace MISA.BL.Models
         {
             return _jobpositionDL.GetListEntityInJobpositionType(jobpositionTypeId);
         }
+        public List<JobpositionData> GetJobpositionByOrganizationCode(String organizationCode)
+        {
+            return _jobpositionDL.GetJobpositionByOrganizationCode(organizationCode);
+        }
+        public Boolean UpdateJobpositionByOrganizationCode(String organizationCode, List<JobpositionData> listJobpositionDatas)
+        {
+            string listId = "";
+            for (int i = 0; i < listJobpositionDatas.Count; i++)
+            {
+                if(listJobpositionDatas[i].IsUsed== false)
+                {
+                    if (listId == "")
+                        listId = listId + listJobpositionDatas[i].JobPositionId;
+                    else
+                        listId = listId+"," + listJobpositionDatas[i].JobPositionId;
+
+                }    
+                
+            }
+            return _jobpositionDL.UpdateJobpositionByOrganizationCode(organizationCode, listId);
+        }
+        
+
     }
 }

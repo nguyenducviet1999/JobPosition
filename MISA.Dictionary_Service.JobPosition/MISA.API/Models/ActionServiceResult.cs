@@ -8,9 +8,9 @@ namespace MISA.API.Models
 {
     public class ActionServiceResult
     {
-        public bool Success { get; set; }
+        public String traceID { get; set; }
         public string Message { get; set; }
-        public MISACode MISACode { get; set; }
+        public Code Code { get; set; }
         public object Data { get; set; }
 
         /// <summary>
@@ -18,17 +18,18 @@ namespace MISA.API.Models
         /// </summary>
         public ActionServiceResult()
         {
-            Success = true;
-            Message = "ok";
-            MISACode = MISACode.Success;
+            traceID = "";
+            Message = "Success";
+            Code = Code.Success;
             Data = null;
         }
 
-        public ActionServiceResult(bool success, string message, MISACode misacode, object data)
+        public ActionServiceResult(String traceId, string message, Code misacode, object data)
         {
-            Success = success;
+           
+            traceID = traceId;
             Message = message;
-            MISACode = misacode;
+            Code = misacode;
             Data = data;
         }
     }

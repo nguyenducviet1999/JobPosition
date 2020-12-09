@@ -37,7 +37,7 @@ namespace MISA.API.Common
     /// <summary>
     /// Các mã lỗi
     /// </summary>
-    public enum MISACode
+    public enum Code
     {
         Success = 200,
 

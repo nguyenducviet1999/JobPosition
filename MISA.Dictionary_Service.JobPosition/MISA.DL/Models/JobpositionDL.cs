@@ -71,7 +71,7 @@ namespace MISA.DL.Models
         {
             var tmp = Convertor.ReaderToJobposition(this.dBContext.ExecuteSQL("call Proc_Jobposition_Update('" + entity.JobPositionId + "','" + entity.JobPositionName + "')"));
             if (tmp == null)
-                return null;
+                return entity;
 
             else return tmp[0];
 
@@ -112,6 +112,36 @@ namespace MISA.DL.Models
 
 
         }
+        /// <summary>
+        /// Lấy các chức danh , chức vụ mà tổ chức cần sử dụng
+        /// Created BY: NDVIET
+        /// Created Date: 9/12/2020
+        /// </summary>
+        /// <param name="organizationCode">Mã tổ chức<param>
+        /// <returns>Danh sách chức danh chức vụ </returns>
+        public List<JobpositionData> GetJobpositionByOrganizationCode(String organizationCode)
+        {
+            var tmp = Convertor.ReaderToJobpositionData(this.dBContext.ExecuteSQL("call Proc_Jobposition_GetByOrganizationCode('" + organizationCode + "')"));
+            if (tmp == null)
+                return null;
 
+            else return tmp;
+
+
+        }
+        public Boolean UpdateJobpositionByOrganizationCode(String organizationCode,String listJobpositionId)
+        {
+            var tmp = this.dBContext.ExecuteSQL("call Proc_Jobposition_UpdateByOrganizationCode('" + organizationCode + "','"+ listJobpositionId + "')");
+            tmp.Read();
+
+            if (long.Parse(tmp["countall"].ToString()) > 0)
+                return true;
+            else return false;
+           
+
+
+        }
+
+        
     }
 }

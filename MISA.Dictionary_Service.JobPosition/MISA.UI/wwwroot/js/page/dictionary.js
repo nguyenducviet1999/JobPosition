@@ -72,11 +72,13 @@ class JobpositionJS {
         //xử lí sự kiện trong dialog
         $("#btn-cancel").click(this.cancelOnClick);
         $("#btn-save").click(this.saveOnClick);
+      
         //xử lí dự kiện chọn loại tổ chức
         $("#organizationType").change(me.selectOrganizationType);
         //xử lý dữ
         $("#jobpositionName").change(me.changeJobpositionName);
         $("#jobpositionName").keypress(me.changeJobpositionName);
+        
     }
     //lấy danh sách các loại tổ chức
     loadOrganizationType() {
@@ -296,7 +298,7 @@ class JobpositionJS {
             case Enum.DialogStatus.Add:
                 {
                     var data = me.callajax("POST", "Jobpositions?organizationTypeId=" + OrganizationType , JSON.stringify(jobposition));
-                    if (data.success == true) {
+                    if (data.message == "Success") {
                         me.showToastMsg(Enum.MsgType.Success, "Thêm dữ liệu thành công.");
 
                     }
@@ -311,7 +313,7 @@ class JobpositionJS {
                 {
 
                     var data = me.callajax("PUT", "Jobpositions/" + oldJobPositionId +"?organizationTypeId=" + OrganizationType , JSON.stringify(jobposition));
-                    if (data.success == true) {
+                    if (data.message == "Success") {
                         me.showToastMsg(Enum.MsgType.Success, "Sửa dữ liệu thành công.");
                      
                     }
@@ -464,21 +466,22 @@ class JobpositionJS {
 * */
     cancelOnClick() {
         
-        $.confirm({
-            title: 'Xác nhận!',
-            content: 'Bạn có chắc muốn đóng khung nhập liệu',
-            buttons: {
-                "Đồng ý": function () {
-                    me.hideDialog();
-                },
-                "Hủy": function () {
+        //$.confirm({
+        //    title: 'Xác nhận!',
+        //    content: 'Bạn có chắc muốn đóng khung nhập liệu',
+        //    buttons: {
+        //        "Đồng ý": function () {
+        //            me.hideDialog();
+        //        },
+        //        "Hủy": function () {
                     
-                }
+        //        }
                
-            }
-        });
-        $($(".btn-default")[0]).text("Xác nhận");
-        $($(".btn-default")[1]).text("Hủy");
+        //    }
+        //});
+        //$($(".btn-default")[0]).text("Xác nhận");
+        //$($(".btn-default")[1]).text("Hủy");
+        me.hideDialog();
     }
 /**
 * Xử lí sự kiện click nút lưu trong dialog

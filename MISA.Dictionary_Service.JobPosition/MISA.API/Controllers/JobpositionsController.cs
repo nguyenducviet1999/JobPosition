@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MISA.API.Common;
 using MISA.API.Models;
@@ -16,6 +18,7 @@ namespace MISA.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class JobpositionsController : ControllerBase
     {
       
@@ -41,10 +44,10 @@ namespace MISA.API.Controllers
 
             }
             if (tmp == null)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
         /// <summary>
@@ -69,11 +72,11 @@ namespace MISA.API.Controllers
             }
             if (tmp == null)
             {
-                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+                return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp);
             }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
         /// <summary>
@@ -100,11 +103,11 @@ namespace MISA.API.Controllers
             }
             if (tmp == null)
             {
-                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+                return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp);
             }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
        
@@ -135,11 +138,11 @@ namespace MISA.API.Controllers
 
             if (tmp == null)
             {
-                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+                return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp);
             }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
         /// <summary>
@@ -168,10 +171,10 @@ namespace MISA.API.Controllers
                 tmp = new OrganizationtypejobpositionBL(organizationTypeId).UpdateEntity(entity, id.ToString()); ;
             }
             if (tmp == null)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
         /// <summary>
@@ -198,10 +201,10 @@ namespace MISA.API.Controllers
             }
 
             if (tmp == null)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
         /// <summary>
@@ -234,10 +237,10 @@ namespace MISA.API.Controllers
                 }
 
                 if (resultData.Count == 0)
-                { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, resultData); }
                 else
                 {
-                    return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                    return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, resultData);
                 }
             }
             else
@@ -258,12 +261,44 @@ namespace MISA.API.Controllers
                 }
 
                 if (resultData.Count == 0)
-                { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, resultData); }
+                { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, resultData); }
                 else
                 {
-                    return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, resultData);
+                    return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, resultData);
                 }
             }
+
+        }
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public ActionServiceResult GetJobpositionByOrganizationCode([FromQuery] String oganizationCode)
+        {
+            dynamic tmp = null;
+
+            tmp = new JobpositionBL().GetJobpositionByOrganizationCode(oganizationCode);
+            if (tmp == null)
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
+            else
+            {
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
+            }
+
+
+        }
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public ActionServiceResult UpdateJobpositionByOrganizationCode([FromQuery] String oganizationCode,[FromBody] List<JobpositionData> listJobpositionDatas)
+        {
+            dynamic tmp = null;
+             
+            tmp = new JobpositionBL().UpdateJobpositionByOrganizationCode(oganizationCode, listJobpositionDatas);
+            if (tmp == null)
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
+            else
+            {
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
+            }
+
 
         }
     }

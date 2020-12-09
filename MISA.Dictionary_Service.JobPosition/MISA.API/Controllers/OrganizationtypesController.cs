@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MISA.API.Common;
 using MISA.API.Models;
@@ -14,6 +16,7 @@ namespace MISA.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+   
     public class OrganizationtypesController : ControllerBase
     {
         // GET: api/<OganizationtypesController>
@@ -22,10 +25,10 @@ namespace MISA.API.Controllers
         {
             var tmp = new OrganizationtypeBL().GetListEntity();
             if (tmp == null)
-            { return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp); }
+            { return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp); }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Exception, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Exception, tmp);
             }
 
 
@@ -50,11 +53,11 @@ namespace MISA.API.Controllers
             }
             if (tmp == null)
             {
-                return new ActionServiceResult(false, Message.ErrorMess, Common.MISACode.Exception, tmp);
+                return new ActionServiceResult("", Message.ErrorMess, Common.Code.Exception, tmp);
             }
             else
             {
-                return new ActionServiceResult(true, Message.SuccessMess, Common.MISACode.Success, tmp);
+                return new ActionServiceResult("", Message.SuccessMess, Common.Code.Success, tmp);
             }
         }
 

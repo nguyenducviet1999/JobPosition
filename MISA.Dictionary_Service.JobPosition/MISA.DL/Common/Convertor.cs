@@ -45,6 +45,35 @@ namespace MISA.DL.Common
             if (_result.Count == 0) return null;
             return _result;
         }
+
+        public static List<JobpositionData> ReaderToJobpositionData(dynamic reader)
+        {
+            List<JobpositionData> _result = new List<JobpositionData>();
+            while (reader.Read())
+            {
+                JobpositionData _jobpositionData = new JobpositionData();
+
+
+                _jobpositionData.JobPositionId = Guid.Parse(reader["jobPositionID"].ToString());
+
+                _jobpositionData.IsUsed = reader["isUsed"]== 1?true:false;
+                _jobpositionData.JobPositionName = reader["jobPositionName"].ToString();
+                _jobpositionData.CreatedDate = DateTime.Parse(reader["createdDate"].ToString());
+                if (reader["modifiedDate"].ToString() != "")
+                {
+                    _jobpositionData.ModifiedDate = DateTime.Parse(reader["modifiedDate"].ToString());
+
+                }
+
+
+
+                _result.Add(_jobpositionData);
+            }
+
+
+            if (_result.Count == 0) return null;
+            return _result;
+        }
         /// <summary>
         /// Hàm chuyển dữ liệu trả về từ DataBase kiểu MySqlDataReader thành Jobpositionnouse
         /// </summary>
