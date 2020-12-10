@@ -17,7 +17,12 @@ namespace MISA.API.Controllers
    
     public class JobpositionnouseController : Controller
     {
-
+        /// <summary>
+        /// Thêm
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="organizationTypeId"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionServiceResult Post([FromBody] Jobposition entity, [FromQuery] String organizationTypeId)
         {

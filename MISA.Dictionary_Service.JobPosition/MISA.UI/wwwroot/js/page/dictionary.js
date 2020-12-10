@@ -168,6 +168,7 @@ class JobpositionJS {
 * Created Date: 1/12/2020
 * */
     loadTable(data) {
+        me.showLoader();
             var tbody = $("#bodytable");
             tbody.empty();
         if (data != null) {
@@ -598,5 +599,11 @@ class JobpositionJS {
     hideDialog() {
         insert_dialog.dialog("close");
         me.clearDialog();
+    }
+    showLoader() {
+        $(".loader").show();
+        setTimeout(function () {
+            $('.loader').hide();
+        }, 500);
     }
 }

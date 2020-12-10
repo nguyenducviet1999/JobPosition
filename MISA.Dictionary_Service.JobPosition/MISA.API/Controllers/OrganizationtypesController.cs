@@ -18,7 +18,12 @@ namespace MISA.API.Controllers
     [ApiController]
    
     public class OrganizationtypesController : ControllerBase
-    {
+    {   /// <summary>
+        /// Hàm lấy tất cả các chức danh chức vụ
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <returns>Đối tượng respone chứa dữ liệu</returns>
         // GET: api/<OganizationtypesController>
         [HttpGet]
         public ActionServiceResult Get()
@@ -34,10 +39,12 @@ namespace MISA.API.Controllers
 
         }
         /// <summary>
-        /// Hàm lấy các chức danh chức vụ chưa có trong loại tổ chức
+        /// Hàm lấy các chức danh chức vụ chưa có trong loại tổ chức hỗ trợ nhập khi thêm chức danh chức vụ vào tổ chức
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
         /// </summary>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone chứa danh sách chức danh chức vụ chưa có trong tổ chức</returns>
         [HttpGet("insertings-jobpositions")]
         public ActionServiceResult GetJobpositionName([FromQuery] String organizationTypeId)
         {

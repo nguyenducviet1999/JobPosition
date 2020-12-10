@@ -21,8 +21,8 @@ namespace MISA.API.Controllers
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class JobpositionsController : ControllerBase
     {
-      
-       
+
+
 
         /// <summary>
         /// Hàm lấy chức danh, chức vụ theo id
@@ -31,7 +31,7 @@ namespace MISA.API.Controllers
         /// </summary>
         /// <param name="id">Id chức danh chức vụ</param>
         /// <param name="organizationTypeId">Id loại tổ chức </param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone chứa đối tượng chức danh chức vụ</returns>
         // GET api/<JobpositionsController>/5
         [HttpGet("{id}")]
         public ActionServiceResult Get(String id, [FromQuery] String organizationTypeId)
@@ -56,7 +56,7 @@ namespace MISA.API.Controllers
         /// Created Date: 5/12/2020
         /// </summary>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone chứa tổng số bản ghi </returns>
         [HttpGet("total")]
         public ActionServiceResult CoutAllSearchData([FromQuery] String searchKey, [FromQuery] String organizationTypeId)
         {
@@ -87,7 +87,7 @@ namespace MISA.API.Controllers
         /// <param name="pageindex">Giá trị trang hiện tại</param>
         /// <param name="pagesize">Số lượng bản ghi trong một trang</param>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone chứa dữ liệu phân trang</returns>
         [HttpGet("{pageindex}/{pagesize}")]
         public ActionServiceResult GetSearchPageData(int pageindex, int pagesize, [FromQuery] string searchKey, [FromQuery] String organizationTypeId)
         {
@@ -153,7 +153,7 @@ namespace MISA.API.Controllers
         /// <param name="id">Id chức danh, chức vụ</param>
         /// <param name="entity">Đối tượng sau khi chỉnh sửa</param>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone </returns>
         // PUT api/<JobpositionsController>/5
         [HttpPut("{id}")]
         public ActionServiceResult Put(Guid id, [FromBody] Jobposition entity, [FromQuery] String organizationTypeId)
@@ -184,7 +184,7 @@ namespace MISA.API.Controllers
         /// </summary>
         /// <param name="id">Id chức danh chức vụ cần xóa</param>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone </returns>
         // DELETE api/<JobpositionsController>/5
         [HttpDelete("{id}")]
         public ActionServiceResult Delete(String id, [FromQuery] String organizationTypeId)
@@ -214,7 +214,7 @@ namespace MISA.API.Controllers
         /// </summary>
         /// <param name="listId">Danh sách ID chức danh chức vụ muốn xóa</param>
         /// <param name="organizationTypeId">Id loại tổ chức</param>
-        /// <returns></returns>
+        /// <returns>Đối tượng respone </returns>
         [HttpDelete]
         public ActionServiceResult DeleteListEntity(List<string> listId, [FromQuery] String organizationTypeId)
         {
@@ -269,6 +269,13 @@ namespace MISA.API.Controllers
             }
 
         }
+        /// <summary>
+        /// Hàm cung cấp dư liệu danh mục chức danh chức vụ cho các tổ chức
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="oganizationCode">Mã của tổ chức</param>
+        /// <returns>Đối tượng respone chứa Danh sách chức danh chức vụ và trạng thái được sử dụng của chúng</returns>
         [HttpGet]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionServiceResult GetJobpositionByOrganizationCode([FromQuery] String oganizationCode)
@@ -285,6 +292,14 @@ namespace MISA.API.Controllers
 
 
         }
+        /// <summary>
+        /// Hàm cập nhật các chức danh chức vụ không sử dụng của tổ chức 
+        /// Created By: NDVIET
+        /// Created Date: 5/12/2020
+        /// </summary>
+        /// <param name="oganizationCode">Mã tổ chức</param>
+        /// <param name="listJobpositionDatas">Đối tượng respone chứa Danh sách chức danh chức vụ mà tổ chức không sử dụng</param>
+        /// <returns></returns>
         [HttpPut]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionServiceResult UpdateJobpositionByOrganizationCode([FromQuery] String oganizationCode,[FromBody] List<JobpositionData> listJobpositionDatas)

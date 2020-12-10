@@ -10,7 +10,15 @@
    
     background-color: #efefef;
 }
-
+.btn-bar {
+    border: solid 1px WHITE ;
+}
+    .btn-bar :hover {
+        border-color: #2fbe8e!important;
+    }
+    .btn-bar :focus {
+        border-color: #2fbe8e !important;
+    }
 .page-table-bar .bar-left{
         height: 100%;
         width: 50%;
@@ -24,7 +32,7 @@
     }
 
 .page-table-bar .bar-left .btn-bar{
-        border: none;
+        
         height: 100%;
         width: 30px;
         background-position: center;
@@ -92,5 +100,6 @@
     height: 20px;
 }
 .btn-bar:hover {
-    background-color: #2fbe8e;
+   border-color: #0cc788;
+    
 }

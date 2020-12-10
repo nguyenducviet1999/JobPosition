@@ -23,10 +23,11 @@
     <link href="../css/page/Jobposition/table.css" rel="stylesheet" />
     <link href="../css/page/Jobposition/paging.css" rel="stylesheet" />
     <link href="../css/common/jqueryconfirm.css" rel="stylesheet" />
-
+    <link href="../css/common/loader.css" rel="stylesheet" />
     <link href="../css/common/Confirm.css" rel="stylesheet" />
     <link href="/css/common/notification.css" rel="stylesheet" />
     <link href="../css/page/Jobposition/toolbar.css" rel="stylesheet" />
+    <link href="../lib/fontawesome-5.15.1/css/all.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -44,7 +45,7 @@
             </a>
             <a class="nav-item" href="organizationtype.html">
                 <div class="nav-item-icon nav-item-report"></div>
-                <div class="nav-item-text"> Loại tổ chức</div>
+                <div class="nav-item-text">Quản lý</div>
                 <span class="caret"></span>
 
             </a>
@@ -97,17 +98,20 @@
         </div>
 
         <!--<div class="filter-bar">
-            <div class="filter-left">
-                <input class="icon-search input-search" type="text" style="width: 200px"
-                       placeholder="Tìm kiếm theo Mã, Tên danh mục" />
-            </div>
-            <div class="filter-right">
-                <button id="filter-right-icon" class="m-second-button m-btn-refresh">
-                </button>
-            </div>
-        </div>-->
+        <div class="filter-left">
+            <input class="icon-search input-search" type="text" style="width: 200px"
+                   placeholder="Tìm kiếm theo Mã, Tên danh mục" />
+        </div>
+        <div class="filter-right">
+            <button id="filter-right-icon" class="m-second-button m-btn-refresh">
+            </button>
+        </div>
+    </div>-->
         <div class="grid grid-dictionary">
             <div class="grid-header">
+                <div class="loader">
+                    <span class="fas fa-spinner animation icon"></span>
+                </div>
                 <table id="datatb" border="0" width="100%" cellspacing="0">
                     <thead>
                         <tr style="background-color: #c5c5c5">
@@ -120,6 +124,7 @@
                         </tr>
                     </thead>
                     <tbody id="bodytable">
+                        
                     </tbody>
                 </table>
             </div>
@@ -130,24 +135,24 @@
             <div class="page-table-bar">
 
                 <div class=" bar-left">
-                    <button id="firstPage" class="btn-bar btn-left-left">
+                    <button id="firstPage" class="btn-bar btn-left-left" title="Trang đầu">
                     </button>
-                    <button id="prePage" class="btn-bar btn-left">
+                    <button id="prePage" class="btn-bar btn-left" title="Trang trước">
                     </button>
-                    <div class="page-number">
+                    <div class="page-number" title="Trang hiện tại">
                         <span>Trang</span>
 
                         <input id="pageNumber" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 
                         <span id="totalPageNuber"></span>
                     </div>
-                    <button id="nextPage" class="btn-bar btn-right">
+                    <button id="nextPage" class="btn-bar btn-right" title="Trang sau">
                     </button>
-                    <button id="lastPage" class="btn-bar btn-right-right">
+                    <button id="lastPage" class="btn-bar btn-right-right" title="Trang cuối">
                     </button>
 
                     <!--<button id="refreshPage" class="btn-bar btn-refresh">
-                    </button>-->
+                </button>-->
                     <input id="numberRecordPage" type="number" step="25" min="25" max="100">
 
                 </div>
@@ -188,10 +193,11 @@
             </div>
         </div>
         <div id="toastMsg">
-            <span id="iconTypeMsg" class="toastMsg-img-success"></span> 
+            <span id="iconTypeMsg" class="toastMsg-img-success"></span>
             <div id="typeMsg">Thành công</div>
             <div id="text-msg" class="toastMsg-text"></div>
         </div>
+        
     </div>
     <script src="/lib/jquery-3.5.1.min.js"></script>
     <script src="/lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
